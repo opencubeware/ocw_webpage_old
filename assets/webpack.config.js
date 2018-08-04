@@ -38,7 +38,7 @@ const config = {
         fallback: "style-loader"
       })
     }, {
-      test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+      test: /\.(png|ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
       // put fonts in assets/static/fonts/
       loader: 'file-loader?name=/fonts/[name].[ext]'
     }]
