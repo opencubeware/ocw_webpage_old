@@ -1,0 +1,34 @@
+.grid {
+    height: auto;
+    padding: 0px !important;
+
+    &-6 {
+        padding: 0px !important;
+
+        .promo-photo {
+            height: calc(100% / 5 * 3);
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .cards {
+            height: calc(100% / 5 * 2);
+        }
+    }
+}
+
+.border {
+    outline: 0.01px solid $color-grey;
+}
+
+table.border {
+    height: 100%;
+    margin: 0px !important;
+}
+
+.border tr td {
+    outline: 1px solid $color-grey;
+}

@@ -1,17 +1,12 @@
+@import 'settings/variables';
+@import './home';
+@import './navbar';
+@import './grid';
+
 @media (max-width: 600px){
     .grid {
         display: none;
     }
-}
-
-$color-grey: #EBEBEB;
-$color-blue-light: #60CEEA;
-$color-blue-dark: #0097DC;
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
 }
 
 .no-margin {
@@ -26,11 +21,6 @@ body {
     color: $color-grey;
 }
 
-.ocw-logo {
-    max-width: 100%;
-    height: auto;
-}
-
 .collapsible-body {
     padding: 0px !important;
 }
@@ -39,125 +29,4 @@ body {
     width: 2em;
     height: auto;
     vertical-align: middle;
-}
-
-.navbar {
-    display: flex;
-    justify-content: center;
-    margin: 0px !important;
-    height: 100%;
-
-    &__item {
-        color: inherit;
-    }
-
-    &__items {
-        display: flex;
-        flex-direction: row;
-        font-family: 'PT Sans Narrow';
-        font-weight: bold;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-
-    &__wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0px !important;
-    }
-}
-
-.ocw__logo--image {
-    width: 100%;
-    vertical-align: middle;
-    padding-bottom: 10%;
-    padding-top: 10%;
-}
-
-.home {
-    display: flex;
-    flex-direction: row;
-    margin: 0px !important;
-}
-
-.grid {
-    height: auto;
-    padding: 0px !important;
-
-    &-6 {
-        padding: 0px !important;
-
-        .promo-photo {
-            height: calc(100% / 5 * 3);
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .cards {
-            height: calc(100% / 5 * 2);
-        }
-    }
-}
-
-.cards {
-    &__left {
-        width: calc(100% / 3 * 2);
-        height: 100%;
-    }
-
-    &__right {
-        width: calc(100% / 3);
-        height: 100%;
-
-        &--top,
-        &--bottom {
-            height: 50%;
-        }
-        .homeSmallCard {
-            height: 100%;
-            display: flex;
-            flex-direction: row;
-
-            &.blue--light {
-                background-color: $color-blue-light;
-            }
-
-            &.blue--dark {
-                background-color: $color-blue-dark;
-            }
-
-            .icon {
-                width: 40%;
-
-                img {
-                    width: 100%;
-                }
-            }
-
-            .infos {
-                width: 60%;
-            }
-        }
-    }
-}
-
-.border {
-    outline: 0.01px solid $color-grey;
-}
-
-table.border {
-    height: 100%;
-    margin: 0px !important;
-}
-
-.border tr td {
-    outline: 1px solid $color-grey;
-}
-
-.promo-img {
-    display: inherit;
 }
