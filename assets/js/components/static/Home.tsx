@@ -27,16 +27,16 @@ export class Home extends React.Component {
               <HomeSmallCard
                 color='light'
                 icon_path='images/envelope_icon.png'
-                title='test'
-                body='test'
+                title='Want to use ocw?'
+                body='Send us a message'
               />
             </Col>
             <Col s={6} m={12} className='cards__right--bottom no-padding'>
               <HomeSmallCard
                 color='dark'
                 icon_path='images/calendar_icon.png'
-                title='test'
-                body='test'
+                title='Events'
+                body='Where we make it real-time'
               />
             </Col>
           </Col>

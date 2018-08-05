@@ -20,16 +20,18 @@ export class HomeSmallCard extends React.Component<IHomeSmallCard, {}> {
 
     return (
       <div className={className}>
-        <Col className='icon'>
-          <img src={icon_path} />
+        <Col s={5} className='icon no-padding'>
+          <div className="icon__wrapper">
+            <img src={icon_path} />
+          </div>
         </Col>
-        <Col className='infos'>
-          <div className='infos__title'>
+        <Col s={7} className='infos no-padding'>
+          <Col s={12} className='infos__title no-padding'>
             {title}
-          </div>
-          <div className='infos__body'>
+          </Col>
+          <Col s={12} className='infos__body no-padding'>
             {body}
-          </div>
+          </Col>
         </Col>
       </div>
     )
