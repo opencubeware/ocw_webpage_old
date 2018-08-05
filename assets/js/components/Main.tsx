@@ -12,24 +12,14 @@ import { Team } from './static/Team';
 import { TableGrid } from './universal/TableGrid';
 
 export const Main = () => (
-  <Row className='main'>
-    <Col m={3} className='grid'>
-      <TableGrid times={5} />
-    </Col>
-    <Col s={12} m={6} className='grid-6'>
-      <Switch className='switch'>
-        <Route exact={true} path='/' component={Home} />
-        <Route path='/news' component={News} />
-        <Route path='/events' component={Events} />
-        <Route path='/competitors' component={Competitors} />
-        <Route path='/dev' component={Dev} />
-        <Route path='/about' component={About} />
-        <Route path='/team' component={Team} />
-        <Route path='/contact' component={Contact} />
-      </Switch>
-    </Col>
-    <Col m={3} className='grid'>
-      <TableGrid times={5} />
-    </Col>
-  </Row>
+  <Switch className='main'>
+    <Route exact={true} path='/' component={Home} />
+    <Route path='/news' component={News} />
+    <Route path='/events' component={Events} />
+    <Route path='/competitors' component={Competitors} />
+    <Route path='/dev' component={Dev} />
+    <Route path='/about' component={About} />
+    <Route path='/team' component={Team} />
+    <Route path='/contact' component={Contact} />
+  </Switch>
 )
