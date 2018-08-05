@@ -11,7 +11,7 @@
     &__items {
         display: flex;
         flex-direction: row;
-        font-family: 'PT Sans Narrow';
+        font-family: $main-font;
         font-weight: bold;
         justify-content: space-evenly;
         width: 100%;
