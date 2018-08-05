@@ -6,7 +6,7 @@ import { HomeSmallCard } from '../universal/HomeSmallCard';
 export class Home extends React.Component {
   public render() {
     return (
-      <div>
+      <div className='home'>
         <div className='promo-photo'>
           <img className='promo-img' src='images/promo.png' />
         </div>

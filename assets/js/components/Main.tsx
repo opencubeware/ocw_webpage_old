@@ -12,12 +12,12 @@ import { Team } from './static/Team';
 import { TableGrid } from './universal/TableGrid';
 
 export const Main = () => (
-  <Row className="home">
+  <Row className='main'>
     <Col m={3} className='grid'>
       <TableGrid times={5} />
     </Col>
     <Col s={12} m={6} className='grid-6'>
-      <Switch>
+      <Switch className='switch'>
         <Route exact={true} path='/' component={Home} />
         <Route path='/news' component={News} />
         <Route path='/events' component={Events} />
