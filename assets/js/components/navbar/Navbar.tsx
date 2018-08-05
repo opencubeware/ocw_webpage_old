@@ -6,8 +6,8 @@ export class Navbar extends React.Component {
   public render() {
     return (
       <Row className='navbar'>
-        <Col className='grid' s={3} />
-        <Col className='grid-6' s={6}>
+        <Col className='grid' m={3} />
+        <Col className='grid-6' s={12} m={6}>
           <Row className='navbar__wrapper'>
             <Col className='ocw-logo' s={2}>
               <Link to='/'>
@@ -33,7 +33,7 @@ export class Navbar extends React.Component {
             </Col>
           </Row>
         </Col>
-        <Col className='grid' s={3} />
+        <Col className='grid' m={3} />
       </Row>
     );
   }

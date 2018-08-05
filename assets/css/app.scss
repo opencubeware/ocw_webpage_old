@@ -1,4 +1,12 @@
-$side: 160px;
+@media (max-width: 600px){
+    .grid {
+        display: none;
+    }
+}
+
+$color-grey: #EBEBEB;
+$color-blue-light: #60CEEA;
+$color-blue-dark: #0097DC;
 
 body {
     margin: 0;
@@ -6,8 +14,16 @@ body {
     font-family: sans-serif;
 }
 
+.no-margin {
+    margin: 0px !important;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
 .slash {
-    color: #EBEBEB;
+    color: $color-grey;
 }
 
 .ocw-logo {
@@ -66,21 +82,11 @@ body {
 }
 
 .grid {
-    width: 25%;
     height: auto;
-
-    &-2 {
-        width: calc(100% / 6);
-    }
-
-    &-4 {
-        width: calc(100% / 3);
-    }
+    padding: 0px !important;
 
     &-6 {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
+        padding: 0px !important;
 
         .promo-photo {
             height: calc(100% / 5 * 3);
@@ -98,44 +104,49 @@ body {
 }
 
 .cards {
-    display: flex;
-    flex-direction: row;
-
     &__left {
         width: calc(100% / 3 * 2);
+        height: 100%;
     }
 
     &__right {
         width: calc(100% / 3);
-        display: flex;
-        flex-direction: column;
+        height: 100%;
 
-        .homeSmallCard {
+        &--top,
+        &--bottom {
             height: 50%;
+        }
+        .homeSmallCard {
+            height: 100%;
             display: flex;
             flex-direction: row;
 
             &.blue--light {
-                background-color: #60CEEA;
+                background-color: $color-blue-light;
             }
 
             &.blue--dark {
-                background-color: #0097DC;
+                background-color: $color-blue-dark;
             }
 
             .icon {
-                width: calc(100% / 3);
+                width: 40%;
+
+                img {
+                    width: 100%;
+                }
             }
 
             .infos {
-                width: calc(100% / 3 * 2);
+                width: 60%;
             }
         }
     }
 }
 
 .border {
-    outline: 0.01px solid #DEDEDE;
+    outline: 0.01px solid $color-grey;
 }
 
 table.border {
@@ -144,10 +155,9 @@ table.border {
 }
 
 .border tr td {
-    outline: 1px solid #EBEBEB;
+    outline: 1px solid $color-grey;
 }
 
 .promo-img {
     display: inherit;
-    outline: 1px solid #EBEBEB;
 }
