@@ -9,6 +9,10 @@
     }
 }
 
+body {
+    font-family: $main-font;
+}
+
 .main {
     display: flex;
     flex-direction: row;
@@ -25,6 +29,14 @@
 
 .slash {
     color: $color-grey;
+}
+
+.ocw-light-blue {
+    color: $color-blue-light;
+}
+
+.ocw-dark-blue {
+    color: $color-blue-dark;
 }
 
 .collapsible-body {

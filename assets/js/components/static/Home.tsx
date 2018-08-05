@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { Col, Row } from 'react-materialize';
 import { TableGrid } from '../universal/TableGrid';
-import { HomeSmallCard } from '../universal/HomeSmallCard';
+import { HomeSmallCard } from './Home/HomeSmallCard';
+import { HomeBigCard } from './Home/HomeBigCard';
 
 export class Home extends React.Component {
   public render() {
     return (
       <div className='home'>
-        <div className='promo-photo'>
+        <Col s={12} className='promo-photo no-padding'>
           <div className='promo-photo__text'>
             <div className='promo-photo__text--top'>
               <b>Real-time</b> management
@@ -17,10 +18,14 @@ export class Home extends React.Component {
             </div>
           </div>
           <img className='promo-img' src='images/promo.png' />
-        </div>
-        <div className='cards'>
+        </Col>
+        <Col s={12} className='cards no-padding'>
           <Col s={12} m={8} className='cards__left'>
-            test
+            <HomeBigCard
+              title='Rafał eats pasta with his forehead'
+              date_note='on 14.03.13 by Krzysztof Rusnarczyk'
+              body="Now that we know who you are, I know who I am. I' m not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass."
+            />
           </Col>
           <Col s={12} m={4} className='cards__right no-padding'>
             <Col s={6} m={12} className='cards__right--top no-padding'>
@@ -40,7 +45,7 @@ export class Home extends React.Component {
               />
             </Col>
           </Col>
-        </div>
+        </Col>
       </div>
     );
   }
