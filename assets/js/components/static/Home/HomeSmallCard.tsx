@@ -1,41 +1,32 @@
-import * as React from 'react';
-import { Col } from 'react-materialize';
+import * as React from 'react'
 
-interface IHomeSmallCard {
-  position: string;
-  color: string;
-  title: string;
-  body: string;
-  icon_path: string;
+interface HomeSmallCard {
+  position: string
+  color: string
+  title: string
+  body: string
+  icon_path: string
 }
 
-export class HomeSmallCard extends React.Component<IHomeSmallCard, {}> {
-  public render() {
-    const {
-      position,
-      color,
-      title,
-      body,
-      icon_path
-    } = this.props;
-    const className = `homeSmallCard blue--${color} small-note-${position}`
+const HomeSmallCard: React.SFC<HomeSmallCard> = ({ position, color, title, body, icon_path }) => {
+  const className = `homeSmallCard blue--${color} small-note-${position}`
 
-    return (
-      <div className={className}>
-        <Col s={5} className='icon no-padding'>
-          <div className="icon__wrapper">
-            <img src={icon_path} />
-          </div>
-        </Col>
-        <Col s={7} className='infos no-padding'>
-          <Col s={12} className='infos__title no-padding'>
-            {title}
-          </Col>
-          <Col s={12} className='infos__body no-padding'>
-            {body}
-          </Col>
-        </Col>
+  return (
+    <div className={className}>
+      <div className="icon no-padding">
+        <div className="icon__wrapper">
+          <img src={icon_path} />
+        </div>
       </div>
-    )
-  }
+      <div className="infos no-padding">
+        <div className="infos__title no-padding">
+          {title}
+        </div>
+        <div className="infos__body no-padding">
+          {body}
+        </div>
+      </div>
+    </div>
+  )
 }
+export default HomeSmallCard

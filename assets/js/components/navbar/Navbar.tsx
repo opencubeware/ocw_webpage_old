@@ -20,10 +20,6 @@ export class Navbar extends React.Component {
                 <div className='slash'>/</div>
                 <li><Link className='navbar__item' to='/events'>Events</Link></li>
                 <div className='slash'>/</div>
-                <li><Link className='navbar__item' to='/competitors'>Competitors</Link></li>
-                <div className='slash'>/</div>
-                <li><Link className='navbar__item' to='/dev'>Dev</Link></li>
-                <div className='slash'>/</div>
                 <li><Link className='navbar__item' to='/about'>About</Link></li>
                 <div className='slash'>/</div>
                 <li><Link className='navbar__item' to='/team'>Team</Link></li>

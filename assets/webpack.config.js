@@ -1,53 +1,66 @@
-const env = process.env.NODE_ENV
-const path = require("path")
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin")
-const config = {
-  entry: ["./css/app.scss", "./js/app.js"],
+const path = require('path')
+const webpack = require('webpack')
+const { CheckerPlugin } = require('awesome-typescript-loader')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
+const env = process.env.MIX_ENV === 'prod' ? 'production' : 'development'
+
+module.exports = {
+  entry: [
+    path.join(__dirname, 'js/app.tsx'),
+    path.join(__dirname, 'css/app.scss')
+  ],
   output: {
-    path: path.resolve(__dirname, "../priv/static"),
-    filename: "js/app.js"
-  },
-  resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
-    modules: ["deps", "node_modules"]
+    path: path.join(__dirname, '../priv/static'),
+    filename: 'js/app.js'
   },
   mode: 'development',
   module: {
-    rules: [{
-      test: /\.tsx?$/,
-      use: ["babel-loader", "ts-loader"]
-    }, {
-      test: /\.jsx?$/,
-      use: "babel-loader"
-    }, {
-      test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
-        use: [{
-          loader: "css-loader",
-          options: {
-            minimize: true,
-            sourceMap: env === 'production',
-          },
-        }, {
-          loader: "sass-loader",
-          options: {
-            includePaths: [path.resolve('node_modules')],
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loaders: ['awesome-typescript-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCSSExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000
+            }
           }
-        }],
-        fallback: "style-loader"
-      })
-    }, {
-      test: /\.(png|ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-      // put fonts in assets/static/fonts/
-      loader: 'file-loader?name=/fonts/[name].[ext]'
-    }]
+        ]
+      }
+    ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: "css/[name].css"
+    new CleanWebpackPlugin(['priv/static'], { root: path.join(__dirname, '..') }),
+    new CheckerPlugin(),
+    new MiniCSSExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: 'css/app.css'
     }),
-    new CopyWebpackPlugin([{ from: "./static" }])
-  ]
-};
-module.exports = config;
+    new CopyWebpackPlugin([{ from: path.join(__dirname, 'static') }])
+  ],
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    alias: {
+      phoenix: path.join(__dirname, '../deps/phoenix/priv/static/phoenix.js'),
+      phoenix_html: path.join(__dirname, '../deps/phoenix_html/priv/static/phoenix_html.js')
+    }
+  }
+}
