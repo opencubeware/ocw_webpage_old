@@ -7,7 +7,7 @@ export class Navbar extends React.Component {
     return (
       <Row className='navbar'>
         <Col className='grid' m={3} />
-        <Col className='grid-6' s={12} m={6}>
+        <Col className='grid-6' s={12} l={6}>
           <Row className='navbar__wrapper'>
             <Col className='ocw-logo' s={2}>
               <Link to='/'>
