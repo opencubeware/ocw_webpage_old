@@ -1,51 +1,51 @@
-@import 'settings/variables';
-@import './home';
-@import './home/news';
-@import './navbar';
-@import './grid';
+@import "settings/variables";
+@import "./home";
+@import "./home/news";
+@import "./navbar";
+@import "./grid";
 
-@media (max-width: 801px){
-    .grid {
-        display: none;
-    }
+@media (max-width: 801px) {
+  .grid {
+    display: none;
+  }
 }
 
 body {
-    font-family: $main-font;
+  font-family: $main-font;
 }
 
 .home {
-    display: flex;
-    flex-direction: row;
-    margin: 0px !important;
+  display: flex;
+  flex-direction: row;
+  margin: 0px !important;
 }
 
 .no-margin {
-    margin: 0px !important;
+  margin: 0px !important;
 }
 
 .no-padding {
-    padding: 0px !important;
+  padding: 0px !important;
 }
 
 .slash {
-    color: $color-grey;
+  color: $color-grey;
 }
 
 .ocw-light-blue {
-    color: $color-blue-light;
+  color: $color-blue-light;
 }
 
 .ocw-dark-blue {
-    color: $color-blue-dark;
+  color: $color-blue-dark;
 }
 
 .collapsible-body {
-    padding: 0px !important;
+  padding: 0px !important;
 }
 
 .event-logo {
-    width: 2em;
-    height: auto;
-    vertical-align: middle;
+  width: 2em;
+  height: auto;
+  vertical-align: middle;
 }

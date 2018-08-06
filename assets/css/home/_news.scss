@@ -3,109 +3,112 @@
 @import "./right-grid";
 
 .news-page {
+  display: grid;
+
+  @media (max-width: 799px) {
+    grid-template-columns: repeat(4, 0.3fr);
+    grid-template-rows: repeat(8, 0.3fr);
+    grid-template-areas:
+      'photo photo photo photo'
+      'photo photo photo photo'
+      'photo photo photo photo'
+      'big-note big-note big-note big-note'
+      'small-note-top small-note-top small-note-bottom small-note-bottom'
+      'bottom1 bottom2 bottom3 bottom4 '
+      'footer1 footer2 footer3 footer4'
+      'logo-fb logo-github logo-ocw .';
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(12, 0.5fr);
+    grid-template-rows: repeat(7, 0.5fr);
+    grid-template-areas:
+     'left1 left2 left3 photo photo photo photo photo photo right1 right2 right3'
+     'left4 left5 left6 photo photo photo photo photo photo right4 right5 right6'
+     'left7 left8 left9 photo photo photo photo photo photo right7 right8 right9'
+     'left10 left11 left12 big-note big-note big-note big-note small-note-top small-note-top right10 right11 right12'
+     'left13 left14 left15 big-note big-note big-note big-note small-note-bottom small-note-bottom right13 right14 right15'
+     'bottom1 bottom2 bottom3 bottom4 bottom5 bottom6 bottom7 bottom8 bottom9 bottom10 bottom11 bottom12'
+     '. . . footer1 footer2 footer3 logo-fb logo-github logo-ocw . . .';
+  }
+
+  .photo {
     display: grid;
-    @media (max-width: 799px) {
-        grid-template-columns: repeat(4, 0.3fr);
-        grid-template-rows: repeat(8, 0.3fr);
-        grid-template-areas:
-            'photo photo photo photo'
-            'photo photo photo photo'
-            'photo photo photo photo'
-            'big-note big-note big-note big-note'
-            'small-note-top small-note-top small-note-bottom small-note-bottom'
-            'bottom1 bottom2 bottom3 bottom4 '
-            'footer1 footer2 footer3 footer4'
-            'logo-fb logo-github logo-ocw .';
+    grid-area: photo;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+
+      @media (max-width: 799px) {
+        height: 100%;
+      }
     }
+  }
+
+  .big-card {
+    grid-area: big-note;
+  }
+
+  .news {
+    &__body, &__title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .small-note-top {
+    grid-area: small-note-top;
+  }
+
+  .small-note-bottom {
+    grid-area: small-note-bottom;
+  }
+
+  .fb-image {
+    grid-area: logo-fb;
+  }
+
+  .gh-image {
+    grid-area: logo-github;
+  }
+
+  .read-more {
+    float: right;
+    padding-right: 1em;
+    color: $color-blue-dark;
+  }
+
+  .footer1 {
+    grid-area: footer1;
+  }
+
+  .footer2 {
+    grid-area: footer2;
+  }
+
+  .footer3 {
+    grid-area: footer3;
+  }
+
+  .ocw-image {
+    grid-area: logo-ocw;
+  }
+
+  .promo-photo__text {
+    position: relative;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
     @media (min-width: 800px) {
-        grid-template-columns: repeat(12, 0.5fr);
-        grid-template-rows: repeat(7, 0.5fr);
-        grid-template-areas:
-            'left1 left2 left3 photo photo photo photo photo photo right1 right2 right3'
-            'left4 left5 left6 photo photo photo photo photo photo right4 right5 right6'
-            'left7 left8 left9 photo photo photo photo photo photo right7 right8 right9'
-            'left10 left11 left12 big-note big-note big-note big-note small-note-top small-note-top right10 right11 right12'
-            'left13 left14 left15 big-note big-note big-note big-note small-note-bottom small-note-bottom right13 right14 right15'
-            'bottom1 bottom2 bottom3 bottom4 bottom5 bottom6 bottom7 bottom8 bottom9 bottom10 bottom11 bottom12'
-            '. . . footer1 footer2 footer3 logo-fb logo-github logo-ocw . . .';
+      grid-column-start: 7;
+      grid-column-end: 10;
     }
 
-    .photo {
-        display: grid;
-        grid-area: photo;
-
-        img {
-            object-fit: cover;
-            width: 100%;
-
-            @media (max-width: 799px) {
-                height: 100%;
-            }
-        }
+    @media (max-width: 799px) {
+      grid-column-start: 3;
+      grid-column-end: 5;
     }
-
-    .big-card {
-        grid-area: big-note;
-    }
-
-    .news {
-        &__body, &__title {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
-
-    .small-note-top {
-        grid-area: small-note-top;
-    }
-
-    .small-note-bottom {
-        grid-area: small-note-bottom;
-    }
-
-    .fb-image {
-        grid-area: logo-fb;
-    }
-
-    .gh-image {
-        grid-area: logo-github;
-    }
-
-    .read-more {
-        float: right;
-        padding-right: 1em;
-        color: $color-blue-dark;
-    }
-
-    .footer1 {
-        grid-area: footer1;
-    }
-
-    .footer2 {
-        grid-area: footer2;
-    }
-
-    .footer3 {
-        grid-area: footer3;
-    }
-
-    .ocw-image {
-        grid-area: logo-ocw;
-    }
-
-    .promo-photo__text {
-        position: relative;
-        grid-row-start: 2;
-        grid-row-end: 2;
-
-        @media (min-width: 800px) {
-            grid-column-start: 7;
-            grid-column-end: 10;
-        }
-        @media (max-width: 799px) {
-            grid-column-start: 3;
-            grid-column-end: 5;
-        }
-    }
+  }
 }

@@ -1,38 +1,38 @@
 .navbar {
+  display: flex;
+  justify-content: center;
+  margin: 0px !important;
+  height: 100%;
+
+  &__item {
+    color: inherit;
+  }
+
+  &__items {
     display: flex;
+    flex-direction: row;
+    font-family: $main-font;
+    font-weight: bold;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
     justify-content: center;
     margin: 0px !important;
-    height: 100%;
-
-    &__item {
-        color: inherit;
-    }
-
-    &__items {
-        display: flex;
-        flex-direction: row;
-        font-family: $main-font;
-        font-weight: bold;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-
-    &__wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0px !important;
-    }
+  }
 }
 
 .ocw__logo--image {
-    width: 100%;
-    vertical-align: middle;
-    padding-bottom: 10%;
-    padding-top: 10%;
+  width: 100%;
+  vertical-align: middle;
+  padding-bottom: 10%;
+  padding-top: 10%;
 }
 
 .ocw-logo {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
