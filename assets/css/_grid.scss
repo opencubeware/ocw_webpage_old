@@ -8,12 +8,15 @@
         .promo-photo {
             img {
                 max-width: 100%;
-                height: 100%;
             }
 
             @media (min-width: 600px) {
                 height: calc(100% / 5 * 3);
                 display: flex;
+
+                img {
+                    height: 100%;
+                }
             }
         }
 
