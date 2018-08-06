@@ -1,11 +1,11 @@
-import * as React from 'react';
+import * as React from 'react'
 
 export class Events extends React.Component {
   public render() {
     return (
-      <div className='events'>
+      <div className="events">
         events
       </div>
-    );
+    )
   }
 }
