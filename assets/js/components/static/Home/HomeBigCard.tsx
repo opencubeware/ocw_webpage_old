@@ -1,20 +1,20 @@
-import * as React from 'react';
+import * as React from 'react'
 
-interface IHomeBigCard {
-  title: string;
-  body: string;
-  date_note: string;
+interface HomeBigCard {
+  title: string
+  body: string
+  date_note: string
 }
-const HomeBigCard: React.SFC<IHomeBigCard> = ({title, body, date_note}) => {
+const HomeBigCard: React.SFC<HomeBigCard> = ({title, body, date_note}) => {
   return (
-    <div className='big-card'>
-      <h6 className='news__top'>
-        Recent news <span className='slash'>/</span> <span className='ocw-dark-blue'>See all</span>
+    <div className="big-card">
+      <h6 className="news__top">
+        Recent news <span className="slash">/</span> <span className="ocw-dark-blue">See all</span>
       </h6>
-      <h5 className='news__title ocw-dark-blue'>{title}</h5>
+      <h5 className="news__title ocw-dark-blue">{title}</h5>
       {date_note}<br />
-      <p className='news__body'>{body}</p>
-      <span className='read-more'>Read More</span>
+      <p className="news__body">{body}</p>
+      <span className="read-more">Read More</span>
     </div>
   )
 }

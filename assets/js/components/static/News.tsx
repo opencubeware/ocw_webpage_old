@@ -1,18 +1,18 @@
-import * as React from 'react';
-import HomeBigCard from './Home/HomeBigCard';
-import { LeftGrid, RigthGrid, BottomGrid } from './News/Grids';
-import HomeSmallCard from './Home/HomeSmallCard';
+import * as React from 'react'
+import HomeBigCard from './Home/HomeBigCard'
+import { LeftGrid, RigthGrid, BottomGrid } from './News/Grids'
+import HomeSmallCard from './Home/HomeSmallCard'
 
 export class News extends React.Component {
   public render() {
     return (
-      <div className='news-page'>
+      <div className="news-page">
         {LeftGrid}
-        <div className='promo-photo__text'>
-          <div className='promo-photo__text--top'>
+        <div className="promo-photo__text">
+          <div className="promo-photo__text--top">
             <b>Real-time</b> management
             </div>
-          <div className='promo-photo__text--bottom'>
+          <div className="promo-photo__text--bottom">
             for speedcubing competition
             </div>
         </div>
@@ -22,7 +22,10 @@ export class News extends React.Component {
         {HomeBigCard({
           title: 'Rafał eats pasta with his forehead',
           date_note: 'on 14.03.13 by Krzysztof Rusnarczyk',
-          body: "Now that we know who you are, I know who I am. I' m not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass."
+          body: 'Now that we know who you are, I know who I am. I\' m not a mistake! It all makes sense!' +
+          'In a comic, you know how you can tell who the arch-villain\'s going to be?' +
+          'He\'s the exact opposite of the hero. And most times they\'re friends, like you and me! I should\'ve known way back when...' +
+          'You know why, David? Because of the kids. They called me Mr Glass.'
         })}
         {HomeSmallCard({
           position: 'top',
@@ -40,25 +43,25 @@ export class News extends React.Component {
         })}
         {RigthGrid}
         {BottomGrid}
-        <div className='footer1'>
+        <div className="footer1">
           <img src="images/fb_icon.png" />
         </div>
-        <div className='footer2'>
+        <div className="footer2">
           <img src="images/fb_icon.png" />
         </div>
-        <div className='footer3'>
+        <div className="footer3">
           <img src="images/fb_icon.png" />
         </div>
-        <div className='fb-image'>
+        <div className="fb-image">
           <img src="images/fb_icon.png" />
         </div>
-        <div className='gh-image'>
+        <div className="gh-image">
           <img src="images/gh_icon.png" />
         </div>
-        <div className='ocw-image'>
+        <div className="ocw-image">
           <img src="images/ocw_logo.png" />
         </div>
       </div>
-    );
+    )
   }
 }
