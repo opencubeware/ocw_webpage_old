@@ -52,4 +52,17 @@
         border-top: 1px solid $color-grey;
         border-bottom: 1px solid $color-grey;
     }
+
+    @media (max-width: 799px) {
+        .bottom5,
+        .bottom6,
+        .bottom7,
+        .bottom8,
+        .bottom9,
+        .bottom10,
+        .bottom11,
+        .bottom12 {
+            display: none;
+        }
+    }
 }

@@ -8,8 +8,16 @@ export class News extends React.Component {
     return (
       <div className='news-page'>
         {LeftGrid}
+        <div className='promo-photo__text'>
+          <div className='promo-photo__text--top'>
+            <b>Real-time</b> management
+            </div>
+          <div className='promo-photo__text--bottom'>
+            for speedcubing competition
+            </div>
+        </div>
         <div className="photo">
-          <img src="images/promo.png"/>
+          <img src="images/promo.png" />
         </div>
         <HomeBigCard
           title='Rafał eats pasta with his forehead'
@@ -32,11 +40,23 @@ export class News extends React.Component {
         />
         {RigthGrid}
         {BottomGrid}
+        <div className='footer1'>
+          <img src="images/fb_icon.png" />
+        </div>
+        <div className='footer2'>
+          <img src="images/fb_icon.png" />
+        </div>
+        <div className='footer3'>
+          <img src="images/fb_icon.png" />
+        </div>
         <div className='fb-image'>
-          <img src="images/fb_icon.png"/>
+          <img src="images/fb_icon.png" />
         </div>
         <div className='gh-image'>
-          <img src="images/gh_icon.png"/>
+          <img src="images/gh_icon.png" />
+        </div>
+        <div className='ocw-image'>
+          <img src="images/ocw_logo.png" />
         </div>
       </div>
     );

@@ -3,21 +3,17 @@
 }
 
 .promo-photo__text {
-    @media (min-width: 600px) {
+    @media (min-width: 800px) {
         font-size: 1.3vw;
         align-self: center;
     }
 
-    @media (max-width: 599px) {
+    @media (max-width: 799px) {
         font-size: 3vw;
-        margin-top: 20%;
-        padding-left: 5px;
+        align-self: center;
     }
 
-    float: right;
-    width: 50%;
-    position: absolute;
-    right: -2%;
+    padding-left: 10%;
     color: white;
 }
 
