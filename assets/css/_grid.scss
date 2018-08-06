@@ -77,11 +77,23 @@
                         margin-right: 0.5em;
 
                         &__title {
-                            font-size: 1.2rem;
+                            @media (min-width: 600px) {
+                                font-size: 1.1vw;
+                            }
+
+                            @media (max-width: 599px) {
+                                font-size: 3vw;
+                            }
                         }
 
                         &__body {
-                            font-size: 0.8rem;
+                            @media (min-width: 600px) {
+                                font-size: 0.8vw;
+                            }
+
+                            @media (max-width: 599px) {
+                                font-size: 2vw;
+                            }
                         }
                     }
                 }
