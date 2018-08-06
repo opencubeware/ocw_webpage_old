@@ -39,64 +39,64 @@
                 &--bottom {
                     height: 50%;
                 }
+            }
+        }
+    }
+}
 
-                .homeSmallCard {
-                    min-height: 6em;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: row;
+.homeSmallCard {
+    min-height: 6em;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
 
-                    &.blue--light {
-                        background-color: $color-blue-light;
-                    }
+    &.blue--light {
+        background-color: $color-blue-light;
+    }
 
-                    &.blue--dark {
-                        background-color: $color-blue-dark;
-                    }
+    &.blue--dark {
+        background-color: $color-blue-dark;
+    }
 
-                    .icon {
-                        &__wrapper {
-                            height: 100%;
-                            display: flex;
-                            align-items: center;
+    .icon {
+        &__wrapper {
+            height: 100%;
+            display: flex;
+            align-items: center;
 
-                            img {
-                                width: 100%;
-                                padding-left: 1em;
-                                padding-right: 0.5em;
-                            }
-                        }
-                    }
+            img {
+                width: 100%;
+                padding-left: 1em;
+                padding-right: 0.5em;
+            }
+        }
+    }
 
-                    .infos {
-                        color: white;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        margin-left: 0.5em;
-                        margin-right: 0.5em;
+    .infos {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
 
-                        &__title {
-                            @media (min-width: 600px) {
-                                font-size: 1.1vw;
-                            }
+        &__title {
+            @media (min-width: 600px) {
+                font-size: 1.1vw;
+            }
 
-                            @media (max-width: 599px) {
-                                font-size: 3vw;
-                            }
-                        }
+            @media (max-width: 599px) {
+                font-size: 3vw;
+            }
+        }
 
-                        &__body {
-                            @media (min-width: 600px) {
-                                font-size: 0.8vw;
-                            }
+        &__body {
+            @media (min-width: 600px) {
+                font-size: 0.8vw;
+            }
 
-                            @media (max-width: 599px) {
-                                font-size: 2vw;
-                            }
-                        }
-                    }
-                }
+            @media (max-width: 599px) {
+                font-size: 2vw;
             }
         }
     }

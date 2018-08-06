@@ -1,0 +1,47 @@
+@import './bottom-grid';
+@import './left-grid';
+@import './right-grid';
+
+.news-page {
+    display: grid;
+    grid-template-columns: repeat(12, 0.5fr);
+    grid-template-rows: repeat(7, 0.5fr);
+    grid-template-areas:
+    'left1 left2 left3 photo photo photo photo photo photo right1 right2 right3'
+    'left4 left5 left6 photo photo photo photo photo photo right4 right5 right6'
+    'left7 left8 left9 photo photo photo photo photo photo right7 right8 right9'
+    'left10 left11 left12 big-note big-note big-note big-note small-note-top small-note-top right10 right11 right12'
+    'left13 left14 left15 big-note big-note big-note big-note small-note-bottom small-note-bottom right13 right14 right15'
+    'bottom1 bottom2 bottom3 bottom4 bottom5 bottom6 bottom7 bottom8 bottom9 bottom10 bottom11 bottom12'
+    '. . . footer footer footer logo-fb logo-github logo-ocw . . .';
+
+    .photo {
+        display: grid;
+        grid-area: photo;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    .big-card {
+        grid-area: big-note;
+    }
+
+    .small-note-top {
+        grid-area: small-note-top;
+    }
+
+    .small-note-bottom {
+        grid-area: small-note-bottom;
+    }
+
+    .fb-image {
+        grid-area: logo-fb;
+    }
+
+    .gh-image {
+        grid-area: logo-github;
+    }
+}

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Col } from 'react-materialize';
 
 interface IHomeSmallCard {
+  position: string;
   color: string;
   title: string;
   body: string;
@@ -11,12 +12,13 @@ interface IHomeSmallCard {
 export class HomeSmallCard extends React.Component<IHomeSmallCard, {}> {
   public render() {
     const {
+      position,
       color,
       title,
       body,
       icon_path
     } = this.props;
-    const className = `homeSmallCard blue--${color}`
+    const className = `homeSmallCard blue--${color} small-note-${position}`
 
     return (
       <div className={className}>

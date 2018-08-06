@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Col } from 'react-materialize';
 
 interface IHomeBigCard {
   title: string;
@@ -16,7 +15,7 @@ export class HomeBigCard extends React.Component<IHomeBigCard, {}> {
     } = this.props;
 
     return (
-      <div>
+      <div className='big-card'>
         <h6 className='news__top'>
           Recent news <span className='slash'>/</span> <span className='ocw-dark-blue'>See all</span>
         </h6>

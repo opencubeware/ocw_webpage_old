@@ -1,20 +1,26 @@
 import * as React from 'react';
-import _ from 'lodash';
+import { times } from 'lodash';
 
 interface ITableGrid {
-  times: number;
+  rows: number;
+  columns: number;
 }
 
 export class TableGrid extends React.Component<ITableGrid, {}> {
   public render() {
-    const { times } = this.props;
-    let rows = [];
-    _.times(times, (i) => {
-      rows.push(
+    const { rows, columns } = this.props;
+    let rowsArray = [];
+    let columnsArray = [];
+
+    times(columns, (i) => {
+      columnsArray.push(
+        <td key={i} />
+      )
+    });
+    times(rows, (i) => {
+      rowsArray.push(
         <tr key={i}>
-          <td />
-          <td />
-          <td />
+          {columnsArray}
         </tr>
       );
     });
@@ -22,7 +28,7 @@ export class TableGrid extends React.Component<ITableGrid, {}> {
     return (
       <table className='border'>
         <tbody>
-          {rows}
+          {rowsArray}
         </tbody>
       </table>
     )
