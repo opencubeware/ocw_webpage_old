@@ -1,5 +1,5 @@
 all: install
-	mix ecto.create && cd assets && npm install
+	mix ecto.create && cd assets && yarn
 
 install:
 	mix deps.get
