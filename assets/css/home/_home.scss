@@ -1,8 +1,8 @@
-@import "./bottom-grid";
-@import "./left-grid";
-@import "./right-grid";
+@import "../grid/bottom-grid";
+@import "../grid/left-grid";
+@import "../grid/right-grid";
 
-.news-page {
+.home-page {
   display: grid;
 
   @media (max-width: 799px) {
@@ -32,6 +32,50 @@
       '. . . footer1 footer2 footer3 logo-fb logo-github logo-ocw . . .';
   }
 
+  .promo-photo__text {
+    padding-left: 8%;
+    color: white;
+    position: relative;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+    @media (min-width: 800px) {
+      grid-column-start: 7;
+      grid-column-end: 10;
+      font-size: 1.7vw;
+      align-self: center;
+    }
+
+    @media (max-width: 799px) {
+      grid-column-start: 3;
+      grid-column-end: 5;
+      font-size: 3vw;
+      align-self: center;
+    }
+
+  }
+
+  .big-card {
+    grid-area: big-note;
+
+    .news {
+      &__body, &__title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &__top {
+        font-weight: bold;
+      }
+
+      &__body {
+        font-size: 0.8em;
+        color: $color-dark-grey;
+      }
+    }
+  }
+
   .photo {
     display: grid;
     grid-area: photo;
@@ -46,15 +90,61 @@
     }
   }
 
-  .big-card {
-    grid-area: big-note;
-  }
+  .homeSmallCard {
+    min-height: 6em;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
 
-  .news {
-    &__body, &__title {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    &.blue--light {
+      background-color: $color-blue-light;
+    }
+
+    &.blue--dark {
+      background-color: $color-blue-dark;
+    }
+
+    .icon {
+      &__wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 100%;
+          padding-left: 1em;
+          padding-right: 0.5em;
+        }
+      }
+    }
+
+    .infos {
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+
+      &__title {
+        @media (min-width: 600px) {
+          font-size: 1.1vw;
+        }
+
+        @media (max-width: 599px) {
+          font-size: 3vw;
+        }
+      }
+
+      &__body {
+        @media (min-width: 600px) {
+          font-size: 0.8vw;
+        }
+
+        @media (max-width: 599px) {
+          font-size: 2vw;
+        }
+      }
     }
   }
 
@@ -94,21 +184,5 @@
 
   .ocw-image {
     grid-area: logo-ocw;
-  }
-
-  .promo-photo__text {
-    position: relative;
-    grid-row-start: 2;
-    grid-row-end: 2;
-
-    @media (min-width: 800px) {
-      grid-column-start: 7;
-      grid-column-end: 10;
-    }
-
-    @media (max-width: 799px) {
-      grid-column-start: 3;
-      grid-column-end: 5;
-    }
   }
 }

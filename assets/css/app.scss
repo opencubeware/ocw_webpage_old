@@ -1,23 +1,10 @@
 @import "settings/variables";
-@import "./home";
-@import "./home/news";
-@import "./navbar";
-@import "./grid";
-
-@media (max-width: 801px) {
-  .grid {
-    display: none;
-  }
-}
+@import "./home/home";
+@import "./news/news";
+@import "./navbar/navbar";
 
 body {
   font-family: $main-font;
-}
-
-.home {
-  display: flex;
-  flex-direction: row;
-  margin: 0px !important;
 }
 
 .no-margin {
