@@ -1,20 +1,22 @@
 import * as React from 'react'
 import { Route } from 'react-router-dom'
 import Root from './Root'
-import { Events } from './components/static/Events'
-import { About } from './components/static/About'
-import { Team } from './components/static/Team'
-import { Contact } from './components/static/Contact'
-import { Home } from './components/static/Home'
-import { News } from './components/static/News'
+import { EventsPage } from './components/static/Events'
+import { AboutPage } from './components/static/About'
+import { TeamPage } from './components/static/Team'
+import { ContactPage } from './components/static/Contact'
+import { HomePage } from './components/static/Home'
+import { NewsPage } from './components/static/News'
+import { TournamentShowPage } from './components/tournament/tournament-show-page'
 
 export const routes = (
   <Root>
-    <Route exact={true} path="/" component={Home} />
-    <Route path="/news" component={News} />
-    <Route path="/events" component={Events} />
-    <Route path="/about" component={About} />
-    <Route path="/team" component={Team} />
-    <Route path="/contact" component={Contact} />
+    <Route exact={true} path="/" component={HomePage} />
+    <Route path="/news" component={NewsPage} />
+    <Route path="/events" component={EventsPage} />
+    <Route path="/about" component={AboutPage} />
+    <Route path="/team" component={TeamPage} />
+    <Route path="/contact" component={ContactPage} />
+    <Route path="/tournaments/:tournament_id" component={TournamentShowPage} />
   </Root>
 )
