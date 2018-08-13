@@ -1,0 +1,38 @@
+.tournament-show-page {
+  .header {
+    color: white;
+    background-color: $color-blue-dark;
+  }
+
+  .main {
+
+    &__board {
+      &--top {
+        text-align: center;
+
+        .puzzle {
+          font-weight: bold;
+          padding: 0 2%;
+        }
+
+        .round {
+          padding: 0 2%;
+        }
+
+        .description {
+          font-size: 0.8rem;
+          padding: 0 2%;
+        }
+      }
+
+      &--records {
+      }
+
+      &--table {
+      }
+    }
+
+    &__sidebar {
+    }
+  }
+}
