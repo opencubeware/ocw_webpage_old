@@ -6,6 +6,9 @@ import HomeSmallCard from './Home/HomeSmallCard'
 
 export class Home extends React.Component {
   public render() {
+    const fbPage = 'https://www.facebook.com/opencubeware/'
+    const ghPage = 'https://www.github.com/opencubeware/'
+
     return (
       <div className="home-page">
         {LeftGrid}
@@ -65,10 +68,14 @@ export class Home extends React.Component {
           </ul>
         </div>
         <div className="fb-image logo logo__grey">
-          <img src="images/fb_icon.png" />
+          <a href={fbPage} target="_blank">
+            <img src="images/fb_icon.png" />
+          </a>
         </div>
         <div className="gh-image logo logo__grey">
-          <img src="images/gh_icon.png" />
+          <a href={ghPage} target="_blank">
+            <img src="images/gh_icon.png" />
+          </a>
         </div>
         <div className="ocw-image logo">
           <img src="images/ocw_logo.png" />

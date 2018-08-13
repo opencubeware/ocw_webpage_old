@@ -14,9 +14,8 @@
       'photo photo photo photo'
       'big-note big-note big-note big-note'
       'small-note-top small-note-top small-note-bottom small-note-bottom'
-      'bottom1 bottom2 bottom3 bottom4 '
-      'footer1 footer2 footer3 footer4'
-      'logo-fb logo-github logo-ocw .';
+      'footer1 footer2 footer3 logo-ocw'
+      '. logo-fb logo-github .';
   }
 
   @media (min-width: 800px) {
@@ -152,18 +151,23 @@
 
   .logo {
     display: flex;
-    justify-content: center;
-    align-items: center;
 
     &__grey {
       background-color: $color-grey;
     }
-    img {
-      @media (min-width: 800px) {
-        width: 75%;
-      }
-      @media (max-width: 799px) {
-        width: 40%;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        @media (min-width: 800px) {
+          width: 75%;
+        }
+        @media (max-width: 799px) {
+          width: 40%;
+        }
       }
     }
   }
@@ -222,14 +226,29 @@
   }
 
   .ocw-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      @media (min-width: 800px) {
+        width: 75%;
+      }
+      @media (max-width: 799px) {
+        width: 40%;
+      }
+    }
     grid-area: logo-ocw;
     flex-direction: column;
-    font-size: 0.8vw;
     align-items: flex-start;
     padding-left: 5%;
 
-    img {
-      width: 50%;
+    @media (min-width: 800px) {
+      font-size: 0.8vw;
+    }
+
+    @media (max-width: 799px) {
+      font-size: 2.2vw;
     }
   }
 }
