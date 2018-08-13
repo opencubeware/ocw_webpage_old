@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import HomeBigCard from './Home/HomeBigCard'
 import { LeftGrid, RigthGrid, BottomGrid } from './News/Grids'
 import HomeSmallCard from './Home/HomeSmallCard'
@@ -44,22 +45,34 @@ export class Home extends React.Component {
         {RigthGrid}
         {BottomGrid}
         <div className="footer1">
-          <img src="images/fb_icon.png" />
+          <ul className="footer__links">
+            <li><Link to="/">&bull; <span className="black-font">Home</span></Link></li>
+            <li><Link to="/news">&bull; <span className="black-font">News</span></Link></li>
+            <li><Link to="/dev">&bull; <span className="black-font">Dev</span></Link></li>
+          </ul>
         </div>
         <div className="footer2">
-          <img src="images/fb_icon.png" />
+          <ul className="footer__links">
+            <li><Link to="/about">&bull; <span className="black-font">About</span></Link></li>
+            <li><Link to="/team">&bull; <span className="black-font">Team</span></Link></li>
+            <li><Link to="/contact">&bull; <span className="black-font">Contact</span></Link></li>
+          </ul>
         </div>
         <div className="footer3">
+          <ul className="footer__links">
+            <li><Link to="/events">&bull; <span className="black-font">Events</span></Link></li>
+            <li><Link to="/competitors">&bull; <span className="black-font">Competitors</span></Link></li>
+          </ul>
+        </div>
+        <div className="fb-image logo logo__grey">
           <img src="images/fb_icon.png" />
         </div>
-        <div className="fb-image">
-          <img src="images/fb_icon.png" />
-        </div>
-        <div className="gh-image">
+        <div className="gh-image logo logo__grey">
           <img src="images/gh_icon.png" />
         </div>
-        <div className="ocw-image">
+        <div className="ocw-image logo">
           <img src="images/ocw_logo.png" />
+          ©opencubeware.org
         </div>
       </div>
     )
