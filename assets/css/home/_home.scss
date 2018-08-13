@@ -151,9 +151,10 @@
 
   .logo {
     display: flex;
+    justify-content: center;
 
     &__grey {
-      background-color: $color-grey;
+      background-color: $color-light-grey;
     }
 
     a {
@@ -205,6 +206,7 @@
 
   .gh-image {
     grid-area: logo-github;
+    border-left: 1px solid $color-grey;
   }
 
   .read-more {
