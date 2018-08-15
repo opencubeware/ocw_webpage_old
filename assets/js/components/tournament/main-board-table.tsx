@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Col, Row } from 'react-materialize'
+import { Col, Row, Table } from 'react-materialize'
 
 interface MainBoardTableCompetitor {
   number: number
@@ -20,20 +20,20 @@ interface MainBoardTable {
 const MainBoardTable: React.SFC<MainBoardTable> = ({ data }) => {
   return (
     <Row className="main__board--table">
-      <Col s={12} className="board">
-        <table>
+      <Col s={12} className="board no-padding">
+        <Table striped={true}>
           <thead>
             <tr>
               <th>No.</th>
-              <th>Country</th>
-              <th>Competitor</th>
-              <th>1</th>
-              <th>2</th>
-              <th>3</th>
-              <th>4</th>
-              <th>5</th>
-              <th>Best</th>
-              <th>Avg</th>
+              <th>| Country</th>
+              <th>| Competitor</th>
+              <th>| 1</th>
+              <th>| 2</th>
+              <th>| 3</th>
+              <th>| 4</th>
+              <th>| 5</th>
+              <th>| Best</th>
+              <th>| Avg</th>
             </tr>
           </thead>
           <tbody>
@@ -48,12 +48,12 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }) => {
                    <td key={competitor.third_solve}>{competitor.third_solve}</td>,
                    <td key={competitor.fourth_solve}>{competitor.fourth_solve}</td>,
                    <td key={competitor.fifth_solve}>{competitor.fifth_solve}</td>,
-                   <td key={competitor.best_solve}>{competitor.best_solve}</td>,
-                   <td key={competitor.average}>{competitor.average}</td>]}
+                   <td key={competitor.best_solve}><b>{competitor.best_solve}</b></td>,
+                   <td key={competitor.average} className="average-red"><b>{competitor.average}</b></td>]}
                 </tr>
             )}
           </tbody>
-        </table>
+        </Table>
       </Col>
     </Row>
   )

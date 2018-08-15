@@ -5,7 +5,6 @@
   }
 
   .main {
-
     &__board {
       &--top {
         text-align: center;
@@ -30,14 +29,17 @@
           display: flex;
           align-items: center;
         }
+
         .type {
           margin-left: 5%;
           font-size: 2rem;
           font-weight: bold;
         }
+
         .times {
           font-size: 0.6rem;
         }
+
         .ocw-red {
           background: linear-gradient($color-red, $color-red-dark);
           color: white;
@@ -59,10 +61,39 @@
       }
 
       &--table {
+        .board {
+          table {
+            font-size: 0.8rem;
+
+            thead {
+              tr {
+                background: linear-gradient($color-blue-dark, $color-blue-darker);
+                color: white;
+                th {
+                  border-radius: 0 !important;
+                  font-weight: normal !important;
+                  padding: 5px 5px !important;
+                }
+              }
+            }
+
+            tbody {
+              tr {
+                td {
+                  border-radius: 0 !important;
+                  padding: 5px 5px !important;
+                }
+
+                td.average-red {
+                    color: $color-red;
+                }
+              }
+            }
+          }
+        }
       }
     }
 
-    &__sidebar {
-    }
+    &__sidebar {}
   }
 }
