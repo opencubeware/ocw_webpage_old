@@ -39,17 +39,17 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }) => {
           <tbody>
             {data.map(
               (competitor) =>
-                <tr>
-                  {[<td>{competitor.number}</td>,
-                   <td>{competitor.country}</td>,
-                   <td>{competitor.full_name}</td>,
-                   <td>{competitor.first_solve}</td>,
-                   <td>{competitor.second_solve}</td>,
-                   <td>{competitor.third_solve}</td>,
-                   <td>{competitor.fourth_solve}</td>,
-                   <td>{competitor.fifth_solve}</td>,
-                   <td>{competitor.best_solve}</td>,
-                   <td>{competitor.average}</td>]}
+                <tr key={competitor.number}>
+                  {[<td key={competitor.number}>{competitor.number}</td>,
+                   <td key={competitor.country}>{competitor.country}</td>,
+                   <td key={competitor.full_name}><b>{competitor.full_name}</b></td>,
+                   <td key={competitor.first_solve}>{competitor.first_solve}</td>,
+                   <td key={competitor.second_solve}>{competitor.second_solve}</td>,
+                   <td key={competitor.third_solve}>{competitor.third_solve}</td>,
+                   <td key={competitor.fourth_solve}>{competitor.fourth_solve}</td>,
+                   <td key={competitor.fifth_solve}>{competitor.fifth_solve}</td>,
+                   <td key={competitor.best_solve}>{competitor.best_solve}</td>,
+                   <td key={competitor.average}>{competitor.average}</td>]}
                 </tr>
             )}
           </tbody>
