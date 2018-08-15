@@ -24,22 +24,23 @@ const cellWithRecord = (solve, solveRecord, nameOfClass) => {
   return (
     <td key={solve} className={className}>
       {solve}
-      {solveRecord &&
-        (<img src={require(`../../../static/images/${solveRecord}.png`)} />)}
+      {solveRecord && (
+        <img src={require(`../../../static/images/${solveRecord}.png`)} />
+      )}
     </td>
   )
 }
 
-const mapAttemptsToTds = (attempts) => {
+const mapAttemptsToTds = (attempts: Attempt[]) => {
   return (
     attempts.map(
-      (attempt) =>
+      (attempt: Attempt) =>
         cellWithRecord(attempt.result, attempt.record, '')
     )
   )
 }
 
-const MainBoardTable: React.SFC<MainBoardTable> = ({ data }) => {
+const MainBoardTable: React.SFC<MainBoardTable> = ({ data }: MainBoardTable) => {
   return (
     <Row className="main__board--table">
       <Col s={12} className="board no-padding">
