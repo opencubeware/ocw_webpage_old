@@ -1,7 +1,23 @@
 import * as React from 'react'
 import { Col, Row } from 'react-materialize'
 
-const MainBoardTable: React.SFC<any> = ({ data }) => {
+interface MainBoardTableCompetitor {
+  number: number
+  country: string
+  full_name: string
+  first_solve: string
+  second_solve: string
+  third_solve: string
+  fourth_solve: string
+  fifth_solve: string
+  best_solve: string
+  average: string
+}
+interface MainBoardTable {
+  data: MainBoardTableCompetitor[]
+}
+
+const MainBoardTable: React.SFC<MainBoardTable> = ({ data }) => {
   return (
     <Row className="main__board--table">
       <Col s={12} className="board">
