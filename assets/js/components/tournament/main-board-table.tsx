@@ -1,32 +1,28 @@
 import * as React from 'react'
 import { Col, Row, Table } from 'react-materialize'
 
+interface Attempt {
+  result: string
+  record?: string
+}
+
 interface MainBoardTableCompetitor {
   number: number
   country: string
   full_name: string
-  first_solve: string
-  first_solve_record?: string
-  second_solve: string
-  second_solve_record?: string
-  third_solve: string
-  third_solve_record?: string
-  fourth_solve: string
-  fourth_solve_record?: string
-  fifth_solve: string
-  fifth_solve_record?: string
-  best_solve: string
-  best_solve_record?: string
-  average: string
-  average_record?: string
+  attempts: Attempt[]
+  best_attempt: Attempt
+  average: Attempt
 }
+
 interface MainBoardTable {
   data: MainBoardTableCompetitor[]
 }
 
-const cellWithRecord = (solve, solveRecord) => {
+const cellWithRecord = (solve, solveRecord, nameOfClass) => {
+  const className = `solve ${nameOfClass}`
   return (
-    <td key={solve} className="solve">
+    <td key={solve} className={className}>
       {solve}
       {solveRecord &&
         (<img src={require(`../../../static/images/${solveRecord}.png`)} />)}
@@ -34,13 +30,12 @@ const cellWithRecord = (solve, solveRecord) => {
   )
 }
 
-const averageWithRecord = (solve, solveRecord) => {
+const mapAttemptsToTds = (attempts) => {
   return (
-    <td key={solve} className="solve average-red">
-      {solve}
-      {solveRecord &&
-        (<img src={require(`../../../static/images/${solveRecord}.png`)} />)}
-    </td>
+    attempts.map(
+      (attempt) =>
+        cellWithRecord(attempt.result, attempt.record, '')
+    )
   )
 }
 
@@ -78,13 +73,9 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }) => {
                       <td key={competitor.full_name}>
                         <b>{competitor.full_name}</b>
                       </td>,
-                      cellWithRecord(competitor.first_solve, competitor.first_solve_record),
-                      cellWithRecord(competitor.second_solve, competitor.second_solve_record),
-                      cellWithRecord(competitor.third_solve, competitor.third_solve_record),
-                      cellWithRecord(competitor.fourth_solve, competitor.fourth_solve_record),
-                      cellWithRecord(competitor.fifth_solve, competitor.fifth_solve_record),
-                      cellWithRecord(competitor.best_solve, competitor.best_solve_record),
-                      averageWithRecord(competitor.average, competitor.average_record),
+                      mapAttemptsToTds(competitor.attempts),
+                      cellWithRecord(competitor.best_attempt.result, competitor.best_attempt.record, ''),
+                      cellWithRecord(competitor.average.result, competitor.average.record, 'average-red'),
                     ]
                   }
                 </tr>
