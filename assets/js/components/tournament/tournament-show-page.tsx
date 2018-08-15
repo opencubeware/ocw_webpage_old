@@ -3,7 +3,7 @@ import { Col, Row } from 'react-materialize'
 import MainBoardTop from './main-board-top'
 import MainBoardTable from './main-board-table'
 import MainBoardRecords from './main-board-records'
-import { MainBoardRecordStub } from '../../stubs/main-board-records-stub'
+import { MainBoardRecordStub, MainBoardTableStub } from '../../stubs/main-board'
 
 export class TournamentShowPage extends React.Component {
   public render() {
@@ -19,7 +19,7 @@ export class TournamentShowPage extends React.Component {
               round="First Round"
               description="Average of 5, top 32 proceed to the semifinal" />
             <MainBoardRecords data={MainBoardRecordStub} />
-            <MainBoardTable />
+            <MainBoardTable data={MainBoardTableStub} />
           </Col>
           <Col s={3} className="main__sidebar">
             I am sidebar
