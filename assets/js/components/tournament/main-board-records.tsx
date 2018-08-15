@@ -8,10 +8,10 @@ interface MainBoardRecords {
     wrSingleTime: string
     wrAvgPerson: string
     wrAvgTime: string
-    erSinglePerson: string
-    erSingleTime: string
-    erAvgPerson: string
-    erAvgTime: string
+    crSinglePerson: string
+    crSingleTime: string
+    crAvgPerson: string
+    crAvgTime: string
     nrSinglePerson: string
     nrSingleTime: string
     nrAvgPerson: string
@@ -29,10 +29,10 @@ const MainBoardRecords: React.SFC<MainBoardRecords> = ({
     wrSingleTime,
     wrAvgPerson,
     wrAvgTime,
-    erSinglePerson,
-    erSingleTime,
-    erAvgPerson,
-    erAvgTime,
+    crSinglePerson,
+    crSingleTime,
+    crAvgPerson,
+    crAvgTime,
     nrSinglePerson,
     nrSingleTime,
     nrAvgPerson,
@@ -55,11 +55,11 @@ const MainBoardRecords: React.SFC<MainBoardRecords> = ({
       />
       <RecordCard
         backgroundColor="ocw-blue"
-        recordType="ER"
-        singlePerson={erSinglePerson}
-        singleTime={erSingleTime}
-        avgPerson={erAvgPerson}
-        avgTime={erAvgTime}
+        recordType="CR"
+        singlePerson={crSinglePerson}
+        singleTime={crSingleTime}
+        avgPerson={crAvgPerson}
+        avgTime={crAvgTime}
       />
       <RecordCard
         backgroundColor="ocw-grey"
