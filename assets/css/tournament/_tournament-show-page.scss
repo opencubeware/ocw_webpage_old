@@ -26,6 +26,36 @@
       }
 
       &--records {
+        .record-card {
+          display: flex;
+          align-items: center;
+        }
+        .type {
+          margin-left: 5%;
+          font-size: 2rem;
+          font-weight: bold;
+        }
+        .times {
+          font-size: 0.6rem;
+        }
+        .ocw-red {
+          background: linear-gradient($color-red, $color-red-dark);
+          color: white;
+        }
+
+        .ocw-blue {
+          background: linear-gradient($color-blue-dark, $color-blue-darker);
+          color: white;
+        }
+
+        .ocw-light-grey {
+          background: linear-gradient($color-grey, $color-dark-grey);
+        }
+
+        .ocw-grey {
+          background: linear-gradient($color-dark-grey, black);
+          color: white;
+        }
       }
 
       &--table {

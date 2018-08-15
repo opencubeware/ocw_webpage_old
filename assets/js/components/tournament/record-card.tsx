@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Col, Row } from 'react-materialize'
+import { Col } from 'react-materialize'
 
 interface RecordCard {
   backgroundColor: string
@@ -17,18 +17,34 @@ const RecordCard: React.SFC<RecordCard> = ({
   avgPerson,
   avgTime
 }) => {
-  const className: string = `main__board--records ${backgroundColor}`
+  const className: string = `record-card ${backgroundColor} no-padding`
   return (
     <Col s={3} className={className}>
-      <Col s={3} className="type">
+      <Col s={3} className="type no-padding">
         {recordType}
       </Col>
-      <Col s={9} className="times">
-        <Col s={12} className="times__single">
-          {singlePerson} {singleTime}
+      <Col s={9} className="times no-padding">
+        <Col s={12} className="times__single no-padding">
+          <Col s={3} className="single-average no-padding">
+            <b>SINGLE</b>
+          </Col>
+          <Col s={5} className="times__single no-padding">
+            {singlePerson}
+          </Col>
+          <Col s={4} className="times__single no-padding">
+            {singleTime}
+          </Col>
         </Col>
-        <Col s={12} className="times__single">
-          {avgPerson} {avgTime}
+        <Col s={12} className="times__single no-padding">
+          <Col s={3} className="single-average no-padding">
+            <b>AVG</b>
+          </Col>
+          <Col s={5} className="times__single no-padding">
+            {avgPerson}
+          </Col>
+          <Col s={4} className="times__single no-padding">
+            {avgTime}
+          </Col>
         </Col>
       </Col>
     </Col>
