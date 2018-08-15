@@ -23,6 +23,7 @@ export const MainBoardTableStub = [
       country: 'Poland',
       full_name: 'Rafał Studnicki',
       first_solve: '00:05.70',
+      first_solve_record: 'wr',
       second_solve: '00:06.70',
       third_solve: '00:07.70',
       fourth_solve: '00:08.70',
@@ -37,6 +38,7 @@ export const MainBoardTableStub = [
       first_solve: '00:05.70',
       second_solve: '00:06.70',
       third_solve: '00:07.70',
+      third_solve_record: 'nr',
       fourth_solve: '00:08.70',
       fifth_solve: '00:09.70',
       best_solve: '00:10.70',
@@ -52,7 +54,8 @@ export const MainBoardTableStub = [
       fourth_solve: '00:08.70',
       fifth_solve: '00:09.70',
       best_solve: '00:10.70',
-      average: '00:11.70'
+      average: '00:11.70',
+      average_record: 'er'
     },
     {
       number: 4,

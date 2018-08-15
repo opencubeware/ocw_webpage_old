@@ -6,15 +6,42 @@ interface MainBoardTableCompetitor {
   country: string
   full_name: string
   first_solve: string
+  first_solve_record?: string
   second_solve: string
+  second_solve_record?: string
   third_solve: string
+  third_solve_record?: string
   fourth_solve: string
+  fourth_solve_record?: string
   fifth_solve: string
+  fifth_solve_record?: string
   best_solve: string
+  best_solve_record?: string
   average: string
+  average_record?: string
 }
 interface MainBoardTable {
   data: MainBoardTableCompetitor[]
+}
+
+const cellWithRecord = (solve, solveRecord) => {
+  return (
+    <td key={solve} className="solve">
+      {solve}
+      {solveRecord &&
+        (<img src={require(`../../../static/images/${solveRecord}.png`)} />)}
+    </td>
+  )
+}
+
+const averageWithRecord = (solve, solveRecord) => {
+  return (
+    <td key={solve} className="solve average-red">
+      {solve}
+      {solveRecord &&
+        (<img src={require(`../../../static/images/${solveRecord}.png`)} />)}
+    </td>
+  )
 }
 
 const MainBoardTable: React.SFC<MainBoardTable> = ({ data }) => {
@@ -40,16 +67,26 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }) => {
             {data.map(
               (competitor) =>
                 <tr key={competitor.number}>
-                  {[<td key={competitor.number}>{competitor.number}</td>,
-                   <td key={competitor.country}>{competitor.country}</td>,
-                   <td key={competitor.full_name}><b>{competitor.full_name}</b></td>,
-                   <td key={competitor.first_solve}>{competitor.first_solve}</td>,
-                   <td key={competitor.second_solve}>{competitor.second_solve}</td>,
-                   <td key={competitor.third_solve}>{competitor.third_solve}</td>,
-                   <td key={competitor.fourth_solve}>{competitor.fourth_solve}</td>,
-                   <td key={competitor.fifth_solve}>{competitor.fifth_solve}</td>,
-                   <td key={competitor.best_solve}><b>{competitor.best_solve}</b></td>,
-                   <td key={competitor.average} className="average-red"><b>{competitor.average}</b></td>]}
+                  {
+                    [
+                      <td key={competitor.number}>
+                        {competitor.number}
+                      </td>,
+                      <td key={competitor.country}>
+                        {competitor.country}
+                      </td>,
+                      <td key={competitor.full_name}>
+                        <b>{competitor.full_name}</b>
+                      </td>,
+                      cellWithRecord(competitor.first_solve, competitor.first_solve_record),
+                      cellWithRecord(competitor.second_solve, competitor.second_solve_record),
+                      cellWithRecord(competitor.third_solve, competitor.third_solve_record),
+                      cellWithRecord(competitor.fourth_solve, competitor.fourth_solve_record),
+                      cellWithRecord(competitor.fifth_solve, competitor.fifth_solve_record),
+                      cellWithRecord(competitor.best_solve, competitor.best_solve_record),
+                      averageWithRecord(competitor.average, competitor.average_record),
+                    ]
+                  }
                 </tr>
             )}
           </tbody>
