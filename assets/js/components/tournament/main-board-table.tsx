@@ -19,10 +19,10 @@ interface MainBoardTable {
   data: MainBoardTableCompetitor[]
 }
 
-const cellWithRecord = (solve, solveRecord, nameOfClass) => {
+const cellWithRecord = (solve, solveRecord, key, nameOfClass) => {
   const className = `solve ${nameOfClass}`
   return (
-    <td key={solve} className={className}>
+    <td key={key} className={className}>
       {solve}
       {solveRecord && (
         <img src={require(`../../../static/images/${solveRecord}.png`)} />
@@ -34,8 +34,8 @@ const cellWithRecord = (solve, solveRecord, nameOfClass) => {
 const mapAttemptsToTds = (attempts: Attempt[]) => {
   return (
     attempts.map(
-      (attempt: Attempt) =>
-        cellWithRecord(attempt.result, attempt.record, '')
+      (attempt: Attempt, id: number) =>
+        cellWithRecord(attempt.result, attempt.record, id, '')
     )
   )
 }
@@ -75,8 +75,8 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }: MainBoardTable) => 
                         <b>{competitor.full_name}</b>
                       </td>,
                       mapAttemptsToTds(competitor.attempts),
-                      cellWithRecord(competitor.best_attempt.result, competitor.best_attempt.record, ''),
-                      cellWithRecord(competitor.average.result, competitor.average.record, 'average-red'),
+                      cellWithRecord(competitor.best_attempt.result, competitor.best_attempt.record, 'best', ''),
+                      cellWithRecord(competitor.average.result, competitor.average.record, 'average', 'average-red'),
                     ]
                   }
                 </tr>
