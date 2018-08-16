@@ -1,24 +1,40 @@
 import * as React from 'react'
-import { Col, Collapsible, CollapsibleItem } from 'react-materialize'
+import { Col, Collapsible, CollapsibleItem, Collection, CollectionItem } from 'react-materialize'
+
+// type Round =
+//   'First Round'
+//   | 'Second Round'
+//   | 'Third Round'
+//   | 'Fourth Round'
+//   | 'Final Round'
+//   | 'Combined First'
+//   | 'Combined Final'
+
+interface Category {
+  puzzle: string
+  rounds: string[] // TODO figure to use enum
+}
 
 interface MainSidebarList {
-  puzzle: string
-  round: string
-  description: string
+  data: {
+    categories: Category[]
+  }
 }
-const MainSidebarList: React.SFC<{}> = () => {
+const MainSidebarList: React.SFC<MainSidebarList> = ({ data }) => {
   return (
-    <Col s={12} className="main__sidebar--list">
+    <Col s={12} className="sidebar__list">
       <Collapsible popout={true}>
-        <CollapsibleItem header="First" icon="filter_drama">
-          Lorem ipsum dolor sit amet.
-              </CollapsibleItem>
-        <CollapsibleItem header="Second" icon="place">
-          Lorem ipsum dolor sit amet.
-              </CollapsibleItem>
-        <CollapsibleItem header="Third" icon="whatshot">
-          Lorem ipsum dolor sit amet.
-              </CollapsibleItem>
+        {data && data.categories && data.categories.map(
+          (category) =>
+            <CollapsibleItem key={category.puzzle} header={category.puzzle} className="sidebar__list--header">
+              <Collection>
+                {category.rounds && category.rounds.map(
+                  (round) =>
+                    <CollectionItem key={round}>{round}</CollectionItem>
+                )}
+              </Collection>
+            </CollapsibleItem>
+        )}
       </Collapsible>
     </Col>
   )

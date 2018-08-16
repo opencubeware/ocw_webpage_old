@@ -3,7 +3,7 @@ import { Card, Col, Row } from 'react-materialize'
 import MainBoardTop from './main-board-top'
 import MainBoardTable from './main-board-table'
 import MainBoardRecords from './main-board-records'
-import { MainBoardRecordStub, MainBoardTableStub } from '../../stubs/main-board'
+import { MainBoardRecordStub, MainBoardSidebarCategoriesStub, MainBoardTableStub} from '../../stubs/main-board'
 import MainSidebarCard from './main-sidebar-card'
 import MainSidebarList from './main-sidebar-list'
 
@@ -26,7 +26,7 @@ export class TournamentShowPage extends React.Component {
           </Col>
           <Col s={3} className="sidebar">
             <MainSidebarCard name={name} />
-            <MainSidebarList />
+            <MainSidebarList data={MainBoardSidebarCategoriesStub} />
           </Col>
         </Row>
       </Row>

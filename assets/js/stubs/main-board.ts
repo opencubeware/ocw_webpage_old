@@ -17,6 +17,27 @@ export const MainBoardRecordStub = {
   cbAvgTime: '00:05.70'
 }
 
+export const MainBoardSidebarCategoriesStub = {
+  categories: [
+    {
+      puzzle: '3x3x3',
+      rounds: ['First Round', 'Second Round', 'Final Round']
+    },
+    {
+      puzzle: '4x4x4',
+      rounds: ['First Round', 'Second Round', 'Final Round']
+    },
+    {
+      puzzle: '5x5x5',
+      rounds: ['First Round', 'Second Round', 'Final Round']
+    },
+    {
+      puzzle: 'Megaminx',
+      rounds: ['Combined First', 'Final Round']
+    },
+  ]
+}
+
 export const MainBoardTableStub = [
   {
     number: 1,

@@ -128,7 +128,17 @@
       }
 
       &__list {
+        color: white;
 
+        .collapsible-header {
+          background: linear-gradient($color-blue-light, $color-blue-dark);
+        }
+
+        .collapsible-body {
+          .collection {
+            color: black;
+          }
+        }
       }
     }
   }
