@@ -4,8 +4,8 @@
     background-color: $color-blue-dark;
   }
 
-  .main {
-    &__board {
+  .body {
+    .board {
       &--top {
         text-align: center;
 
@@ -24,7 +24,7 @@
         }
       }
 
-      &--records {
+      &__records {
         .record-card {
           display: flex;
           align-items: center;
@@ -60,8 +60,8 @@
         }
       }
 
-      &--table {
-        .board {
+      &__table {
+        .table {
           table {
             font-size: 0.8rem;
 
@@ -107,6 +107,29 @@
       }
     }
 
-    &__sidebar {}
+    .sidebar {
+      &__card {
+        .card-content {
+          background-color: $color-light-grey;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          img {
+            width: 100px;
+            height: auto;
+          }
+
+          .text {
+            font-size: 1.2rem;
+            padding-left: 5%;
+          }
+        }
+      }
+
+      &__list {
+
+      }
+    }
   }
 }

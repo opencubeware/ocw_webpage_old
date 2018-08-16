@@ -8,7 +8,7 @@ interface MainBoardTop {
 }
 const MainBoardTop: React.SFC<MainBoardTop> = ({ puzzle, round, description }) => {
   return (
-    <Row className="main__board--top">
+    <Row className="board__top">
       <Col s={2} className="puzzle">
         {puzzle}
       </Col>

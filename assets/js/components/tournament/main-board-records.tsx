@@ -44,7 +44,7 @@ const MainBoardRecords: React.SFC<MainBoardRecords> = ({
   }
 }) => {
   return (
-    <Row className="main__board--records">
+    <Row className="board__records">
       <RecordCard
         backgroundColor="ocw-red"
         recordType="WR"
