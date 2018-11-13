@@ -3,7 +3,12 @@ import { Card, Col, Row } from 'react-materialize'
 import MainBoardTop from './main-board-top'
 import MainBoardTable from './main-board-table'
 import MainBoardRecords from './main-board-records'
-import { MainBoardRecordStub, MainBoardSidebarCategoriesStub, MainBoardTableStub} from '../../stubs/main-board'
+import {
+  MainBoardRecordStub,
+  MainBoardSidebarCategoriesStub,
+  MainBoardTableStub,
+  CurrentCategoryAndRound
+} from '../../stubs/main-board'
 import MainSidebarCard from './main-sidebar-card'
 import MainSidebarList from './main-sidebar-list'
 
@@ -17,10 +22,7 @@ export class TournamentShowPage extends React.Component {
         </Row>
         <Row className="body">
           <Col s={9} className="board">
-            <MainBoardTop
-              puzzle="4x4x4"
-              round="First Round"
-              description="Average of 5, top 32 proceed to the semifinal" />
+            <MainBoardTop data={CurrentCategoryAndRound} />
             <MainBoardRecords data={MainBoardRecordStub} />
             <MainBoardTable data={MainBoardTableStub} />
           </Col>

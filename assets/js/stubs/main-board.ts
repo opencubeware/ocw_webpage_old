@@ -1,3 +1,8 @@
+export const CurrentCategoryAndRound = {
+  puzzle: '4x4x4',
+  round: 'First Round',
+  description: 'Average of 5, top 32 proceed to the semifinal'
+}
 export const MainBoardRecordStub = {
   wr: {
     single: {

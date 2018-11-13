@@ -2,21 +2,23 @@ import * as React from 'react'
 import { Col, Row } from 'react-materialize'
 
 interface MainBoardTop {
-  puzzle: string
-  round: string
-  description: string
+  data: {
+    puzzle: string
+    round: string
+    description: string
+  }
 }
-const MainBoardTop: React.SFC<MainBoardTop> = ({ puzzle, round, description }) => {
+const MainBoardTop: React.SFC<MainBoardTop> = ({ data }) => {
   return (
     <Row className="board__top">
       <Col s={2} className="puzzle">
-        {puzzle}
+        {data.puzzle}
       </Col>
       <Col s={2} className="round">
-        {round}
+        {data.round}
       </Col>
       <Col s={8} className="description">
-        {description}
+        {data.description}
       </Col>
     </Row>
   )
