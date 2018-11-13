@@ -4,43 +4,28 @@ import RecordCard from './record-card'
 
 interface MainBoardRecords {
   data: {
-    wrSinglePerson: string
-    wrSingleTime: string
-    wrAvgPerson: string
-    wrAvgTime: string
-    crSinglePerson: string
-    crSingleTime: string
-    crAvgPerson: string
-    crAvgTime: string
-    nrSinglePerson: string
-    nrSingleTime: string
-    nrAvgPerson: string
-    nrAvgTime: string
-    cbSinglePerson: string
-    cbSingleTime: string
-    cbAvgPerson: string
-    cbAvgTime: string
+    wr: Record
+    cr: Record
+    nr: Record
+    cb: Record
   }
+}
+
+interface Record {
+  single: RecordPersonAndTime
+  average: RecordPersonAndTime
+}
+interface RecordPersonAndTime {
+  person: string
+  time: string
 }
 
 const MainBoardRecords: React.SFC<MainBoardRecords> = ({
   data: {
-    wrSinglePerson,
-    wrSingleTime,
-    wrAvgPerson,
-    wrAvgTime,
-    crSinglePerson,
-    crSingleTime,
-    crAvgPerson,
-    crAvgTime,
-    nrSinglePerson,
-    nrSingleTime,
-    nrAvgPerson,
-    nrAvgTime,
-    cbSinglePerson,
-    cbSingleTime,
-    cbAvgPerson,
-    cbAvgTime,
+    wr,
+    cr,
+    nr,
+    cb
   }
 }) => {
   return (
@@ -48,34 +33,34 @@ const MainBoardRecords: React.SFC<MainBoardRecords> = ({
       <RecordCard
         backgroundColor="ocw-red"
         recordType="WR"
-        singlePerson={wrSinglePerson}
-        singleTime={wrSingleTime}
-        avgPerson={wrAvgPerson}
-        avgTime={wrAvgTime}
+        singlePerson={wr.single.person}
+        singleTime={wr.single.time}
+        avgPerson={wr.average.person}
+        avgTime={wr.average.time}
       />
       <RecordCard
         backgroundColor="ocw-blue"
         recordType="CR"
-        singlePerson={crSinglePerson}
-        singleTime={crSingleTime}
-        avgPerson={crAvgPerson}
-        avgTime={crAvgTime}
+        singlePerson={cr.single.person}
+        singleTime={cr.single.time}
+        avgPerson={cr.average.person}
+        avgTime={cr.average.time}
       />
       <RecordCard
         backgroundColor="ocw-grey"
         recordType="NR"
-        singlePerson={nrSinglePerson}
-        singleTime={nrSingleTime}
-        avgPerson={nrAvgPerson}
-        avgTime={nrAvgTime}
+        singlePerson={nr.single.person}
+        singleTime={nr.single.time}
+        avgPerson={nr.average.person}
+        avgTime={nr.average.time}
       />
       <RecordCard
         backgroundColor="ocw-light-grey"
         recordType="CB"
-        singlePerson={cbSinglePerson}
-        singleTime={cbSingleTime}
-        avgPerson={cbAvgPerson}
-        avgTime={cbAvgTime}
+        singlePerson={cb.single.person}
+        singleTime={cb.single.time}
+        avgPerson={cb.average.person}
+        avgTime={cb.average.time}
       />
     </Row>
   )

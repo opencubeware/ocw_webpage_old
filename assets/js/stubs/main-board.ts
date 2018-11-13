@@ -1,20 +1,44 @@
 export const MainBoardRecordStub = {
-  wrSinglePerson: 'Rafał Studnicki',
-  wrSingleTime: '00:05.70',
-  wrAvgPerson: 'Rafał Studnicki',
-  wrAvgTime: '00:05.70',
-  crSinglePerson: 'Rafał Studnicki',
-  crSingleTime: '00:05.70',
-  crAvgPerson: 'Rafał Studnicki',
-  crAvgTime: '00:05.70',
-  nrSinglePerson: 'Rafał Studnicki',
-  nrSingleTime: '00:05.70',
-  nrAvgPerson: 'Rafał Studnicki',
-  nrAvgTime: '00:05.70',
-  cbSinglePerson: 'Rafał Studnicki',
-  cbSingleTime: '00:05.70',
-  cbAvgPerson: 'Rafał Studnicki',
-  cbAvgTime: '00:05.70'
+  wr: {
+    single: {
+      person: 'Rafał Studnicki',
+      time: '00:05.70'
+    },
+    average: {
+      person: 'Rafał Studnicki',
+      time: '00:05.70'
+    }
+  },
+  cr: {
+    single: {
+      person: 'Rafał Studnicki',
+      time: '00:05.70'
+    },
+    average: {
+      person: 'Rafał Studnicki',
+      time: '00:05.70'
+    }
+  },
+  nr: {
+    single: {
+      person: 'Rafał Studnicki',
+      time: '00:05.70'
+    },
+    average: {
+      person: 'Rafał Studnicki',
+      time: '00:05.70'
+    }
+  },
+  cb: {
+    single: {
+      person: 'Rafał Studnicki',
+      time: '00:05.70'
+    },
+    average: {
+      person: 'Rafał Studnicki',
+      time: '00:05.70'
+    }
+  },
 }
 
 export const MainBoardSidebarCategoriesStub = {
@@ -130,7 +154,7 @@ export const MainBoardTableStub = [
   {
     number: 4,
     country: 'Poland',
-    full_name: 'Rafał Studnicki',
+    full_name: 'Kamil Zieliński',
     attempts: [
       {
         result: '00:05.70',
