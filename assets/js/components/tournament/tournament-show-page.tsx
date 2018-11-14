@@ -7,12 +7,17 @@ import {
   MainBoardRecordStub,
   MainBoardSidebarCategoriesStub,
   MainBoardTableStub,
-  CurrentCategoryAndRound
+  CurrentEventAndRound
 } from '../../stubs/main-board'
 import MainSidebarCard from './main-sidebar-card'
 import MainSidebarList from './main-sidebar-list'
 
 export class TournamentShowPage extends React.Component {
+  public handleEventChange(e) {
+    e.preventDefault()
+    console.log(e.target)
+  }
+
   public render() {
     const name = 'Cracow Open 2013'
     return (
@@ -22,13 +27,13 @@ export class TournamentShowPage extends React.Component {
         </Row>
         <Row className="body">
           <Col s={9} className="board">
-            <MainBoardTop data={CurrentCategoryAndRound} />
+            <MainBoardTop data={CurrentEventAndRound} />
             <MainBoardRecords data={MainBoardRecordStub} />
             <MainBoardTable data={MainBoardTableStub} />
           </Col>
           <Col s={3} className="sidebar">
             <MainSidebarCard name={name} />
-            <MainSidebarList data={MainBoardSidebarCategoriesStub} />
+            <MainSidebarList data={MainBoardSidebarCategoriesStub} onClick={this.handleEventChange} />
           </Col>
         </Row>
       </Row>

@@ -1,5 +1,5 @@
-export const CurrentCategoryAndRound = {
-  puzzle: '4x4x4',
+export const CurrentEventAndRound = {
+  event: '4x4x4',
   round: 'First Round',
   description: 'Average of 5, top 32 proceed to the semifinal'
 }
@@ -47,7 +47,7 @@ export const MainBoardRecordStub = {
 }
 
 export const MainBoardSidebarCategoriesStub = {
-  categories: [
+  events: [
     {
       puzzle: '3x3x3',
       rounds: ['First Round', 'Second Round', 'Final Round']

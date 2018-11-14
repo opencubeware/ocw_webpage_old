@@ -3,7 +3,7 @@ import { Col, Row } from 'react-materialize'
 
 interface MainBoardTop {
   data: {
-    puzzle: string
+    event: string
     round: string
     description: string
   }
@@ -12,7 +12,7 @@ const MainBoardTop: React.SFC<MainBoardTop> = ({ data }) => {
   return (
     <Row className="board__top">
       <Col s={2} className="puzzle">
-        {data.puzzle}
+        {data.event}
       </Col>
       <Col s={2} className="round">
         {data.round}
