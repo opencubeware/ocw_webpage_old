@@ -1,5 +1,5 @@
 export const CurrentEventAndRound = {
-  event: '4x4x4',
+  name: '4x4x4',
   round: 'First Round',
   description: 'Average of 5, top 32 proceed to the semifinal'
 }
@@ -49,19 +49,19 @@ export const MainBoardRecordStub = {
 export const MainBoardSidebarCategoriesStub = {
   events: [
     {
-      event: '3x3x3',
+      name: '3x3x3',
       rounds: ['First Round', 'Second Round', 'Final Round']
     },
     {
-      event: '4x4x4',
+      name: '4x4x4',
       rounds: ['First Round', 'Second Round', 'Final Round']
     },
     {
-      event: '5x5x5',
+      name: '5x5x5',
       rounds: ['First Round', 'Second Round', 'Final Round']
     },
     {
-      event: 'Megaminx',
+      name: 'Megaminx',
       rounds: ['Combined First', 'Final Round']
     },
   ]
