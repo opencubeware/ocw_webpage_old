@@ -1,18 +1,9 @@
 import * as React from 'react'
 import { Col, Collapsible, CollapsibleItem, Collection, CollectionItem } from 'react-materialize'
 
-export type Round =
-  'First Round'
-  | 'Second Round'
-  | 'Third Round'
-  | 'Fourth Round'
-  | 'Final Round'
-  | 'Combined First'
-  | 'Combined Final'
-
 interface Category {
   puzzle: string
-  rounds: Round[]
+  rounds: string[]
 }
 
 interface MainSidebarList {

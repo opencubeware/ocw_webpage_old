@@ -1,11 +1,10 @@
 import * as React from 'react'
 import { Col, Row } from 'react-materialize'
-import { Round } from './main-sidebar-list'
 
 interface MainBoardTop {
   data: {
     puzzle: string
-    round: Round
+    round: string
     description: string
   }
 }
