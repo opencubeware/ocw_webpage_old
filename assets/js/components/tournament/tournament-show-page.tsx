@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, Col, Row } from 'react-materialize'
+import { Col, Row } from 'react-materialize'
 import MainBoardTop from './main-board-top'
 import MainBoardTable from './main-board-table'
 import MainBoardRecords from './main-board-records'

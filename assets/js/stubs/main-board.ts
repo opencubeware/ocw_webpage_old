@@ -1,6 +1,8 @@
+import { Round } from 'js/components/tournament/main-sidebar-list'
+
 export const CurrentCategoryAndRound = {
   puzzle: '4x4x4',
-  round: 'First Round',
+  round: 'First Round' as Round,
   description: 'Average of 5, top 32 proceed to the semifinal'
 }
 export const MainBoardRecordStub = {
@@ -50,19 +52,19 @@ export const MainBoardSidebarCategoriesStub = {
   categories: [
     {
       puzzle: '3x3x3',
-      rounds: ['First Round', 'Second Round', 'Final Round']
+      rounds: ['First Round', 'Second Round', 'Final Round'] as Round[]
     },
     {
       puzzle: '4x4x4',
-      rounds: ['First Round', 'Second Round', 'Final Round']
+      rounds: ['First Round', 'Second Round', 'Final Round'] as Round[]
     },
     {
       puzzle: '5x5x5',
-      rounds: ['First Round', 'Second Round', 'Final Round']
+      rounds: ['First Round', 'Second Round', 'Final Round'] as Round[]
     },
     {
       puzzle: 'Megaminx',
-      rounds: ['Combined First', 'Final Round']
+      rounds: ['Combined First', 'Final Round'] as Round[]
     },
   ]
 }

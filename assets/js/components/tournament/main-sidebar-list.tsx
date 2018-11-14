@@ -1,18 +1,18 @@
 import * as React from 'react'
 import { Col, Collapsible, CollapsibleItem, Collection, CollectionItem } from 'react-materialize'
 
-// type Round =
-//   'First Round'
-//   | 'Second Round'
-//   | 'Third Round'
-//   | 'Fourth Round'
-//   | 'Final Round'
-//   | 'Combined First'
-//   | 'Combined Final'
+export type Round =
+  'First Round'
+  | 'Second Round'
+  | 'Third Round'
+  | 'Fourth Round'
+  | 'Final Round'
+  | 'Combined First'
+  | 'Combined Final'
 
 interface Category {
   puzzle: string
-  rounds: string[] // TODO figure to use enum
+  rounds: Round[]
 }
 
 interface MainSidebarList {
