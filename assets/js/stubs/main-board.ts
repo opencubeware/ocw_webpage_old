@@ -69,7 +69,7 @@ export const MainBoardSidebarCategoriesStub = {
 
 export const MainBoardTableStub = [
   {
-    number: 1,
+    place: 1,
     country: 'Poland',
     full_name: 'Rafał Studnicki',
     attempts: [
@@ -98,7 +98,7 @@ export const MainBoardTableStub = [
     }
   },
   {
-    number: 2,
+    place: 2,
     country: 'Poland',
     full_name: 'Rafał Studnicki',
     attempts: [
@@ -128,7 +128,7 @@ export const MainBoardTableStub = [
     }
   },
   {
-    number: 3,
+    place: 3,
     country: 'Poland',
     full_name: 'Rafał Studnicki',
     attempts: [
@@ -157,7 +157,7 @@ export const MainBoardTableStub = [
     }
   },
   {
-    number: 4,
+    place: 4,
     country: 'Poland',
     full_name: 'Kamil Zieliński',
     attempts: [
@@ -186,7 +186,7 @@ export const MainBoardTableStub = [
     }
   },
   {
-    number: 5,
+    place: 5,
     country: 'Poland',
     full_name: 'Rafał Studnicki',
     attempts: [

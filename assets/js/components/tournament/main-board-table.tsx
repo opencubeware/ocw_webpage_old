@@ -7,7 +7,7 @@ interface Attempt {
 }
 
 interface MainBoardTableCompetitor {
-  number: number
+  place: number
   country: string
   full_name: string
   attempts: Attempt[]
@@ -62,11 +62,11 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }: MainBoardTable) => 
           <tbody>
             {data.map(
               (competitor) =>
-                <tr key={competitor.number}>
+                <tr key={competitor.place}>
                   {
                     [
-                      <td key={competitor.number}>
-                        {competitor.number}
+                      <td key={competitor.place}>
+                        {competitor.place}
                       </td>,
                       <td key={competitor.country}>
                         {competitor.country}
