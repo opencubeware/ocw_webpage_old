@@ -12,9 +12,13 @@ import {
 import MainSidebarCard from './main-sidebar-card'
 import MainSidebarList from './main-sidebar-list'
 
-export class TournamentShowPage extends React.Component {
-  public handleEventChange() {
-    console.log('this is:', this)
+export class TournamentShowPage extends React.Component<any, any> {
+  public constructor(props: any) {
+    super(props)
+    this.state = { currentEventAndRound: CurrentEventAndRound }
+  }
+  public handleEventChange(this) {
+    console.warn(this)
   }
 
   public render() {
@@ -26,7 +30,7 @@ export class TournamentShowPage extends React.Component {
         </Row>
         <Row className="body">
           <Col s={9} className="board">
-            <MainBoardTop data={CurrentEventAndRound} />
+            <MainBoardTop data={this.state.currentEventAndRound} />
             <MainBoardRecords data={MainBoardRecordStub} />
             <MainBoardTable data={MainBoardTableStub} />
           </Col>
