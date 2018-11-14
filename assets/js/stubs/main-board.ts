@@ -49,19 +49,19 @@ export const MainBoardRecordStub = {
 export const MainBoardSidebarCategoriesStub = {
   events: [
     {
-      puzzle: '3x3x3',
+      event: '3x3x3',
       rounds: ['First Round', 'Second Round', 'Final Round']
     },
     {
-      puzzle: '4x4x4',
+      event: '4x4x4',
       rounds: ['First Round', 'Second Round', 'Final Round']
     },
     {
-      puzzle: '5x5x5',
+      event: '5x5x5',
       rounds: ['First Round', 'Second Round', 'Final Round']
     },
     {
-      puzzle: 'Megaminx',
+      event: 'Megaminx',
       rounds: ['Combined First', 'Final Round']
     },
   ]

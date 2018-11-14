@@ -13,9 +13,8 @@ import MainSidebarCard from './main-sidebar-card'
 import MainSidebarList from './main-sidebar-list'
 
 export class TournamentShowPage extends React.Component {
-  public handleEventChange(e) {
-    e.preventDefault()
-    console.log(e.target)
+  public handleEventChange() {
+    console.log('this is:', this)
   }
 
   public render() {

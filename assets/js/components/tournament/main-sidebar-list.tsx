@@ -2,12 +2,12 @@ import * as React from 'react'
 import { Col, Collapsible, CollapsibleItem, Collection, CollectionItem } from 'react-materialize'
 
 interface Event {
-  puzzle: string
+  event: string
   rounds: string[]
 }
 
 interface MainSidebarList {
-  onClick: (e) => any,
+  onClick: () => any,
   data: {
     events: Event[]
   }
@@ -18,11 +18,11 @@ const MainSidebarList: React.SFC<MainSidebarList> = ({ data, onClick }) => {
       <Collapsible popout={true}>
         {data && data.events && data.events.map(
           (event) =>
-            <CollapsibleItem key={event.puzzle} header={event.puzzle} className="sidebar__list--header">
+            <CollapsibleItem key={event.event} header={event.event} className="sidebar__list--header">
               <Collection>
                 {event.rounds && event.rounds.map(
                   (round) =>
-                    <CollectionItem onClick={onClick} key={round}>{round}</CollectionItem>
+                    <CollectionItem onClick={onClick.bind({round, event: event.event})} key={round}>{round}</CollectionItem>
                 )}
               </Collection>
             </CollapsibleItem>
