@@ -3,22 +3,30 @@ import { Col, Row } from 'react-materialize'
 
 interface EventRound {
   data: {
-    name: string
-    round: string
-    description: string
+    tournament: {
+      id: string
+    }
+    event: {
+      id: string
+      name: string
+    }
+    round: {
+      id: string
+      name: string
+    }
   }
 }
 const MainBoardTop: React.SFC<EventRound> = ({ data }) => {
   return (
     <Row className="board__top">
       <Col s={2} className="puzzle">
-        {data.name}
+        {data.event.name}
       </Col>
       <Col s={2} className="round">
-        {data.round}
+        {data.round. name}
       </Col>
       <Col s={8} className="description">
-        {data.description}
+        Description
       </Col>
     </Row>
   )

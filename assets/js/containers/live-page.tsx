@@ -25,21 +25,18 @@ export class LivePage extends React.Component<any, any> {
   }
 
   public render() {
-
-    console.warn(this.props)
-    const { event } = this.props
+    const { currentRound } = this.props
     const name = 'Cracow Open 2013'
     return (
       <Row className="tournament-show-page">
         <Row className="header">
           OCW &lt; back to website
         </Row>
-        {event && (
-          <div>test</div>
-        )}
         <Row className="body">
           <Col s={9} className="board">
-            <MainBoardTop data={CurrentEventAndRound} />
+            {currentRound && (
+              <MainBoardTop data={currentRound} />
+            )}
             <MainBoardRecords data={MainBoardRecordStub} />
             <MainBoardTable data={MainBoardTableStub} />
           </Col>
