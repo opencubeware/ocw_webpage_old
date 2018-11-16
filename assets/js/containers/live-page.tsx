@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-materialize'
 import MainBoardTop from '../components/tournament/main-board-top'
 import MainBoardTable from '../components/tournament/main-board-table'
@@ -7,7 +8,6 @@ import {
   MainBoardRecordStub,
   MainBoardSidebarCategoriesStub,
   MainBoardTableStub,
-  CurrentEventAndRound
 } from '../stubs/main-board'
 import MainSidebarCard from '../components/tournament/main-sidebar-card'
 import MainSidebarList from '../components/tournament/main-sidebar-list'
@@ -20,8 +20,15 @@ export class LivePage extends React.Component<any, any> {
   }
 
   public componentDidMount() {
-    const { tournamentId } = this.props.match.params
-    this.props.fetchRound(tournamentId, 1, 1)
+    const { tournamentId, eventId, roundId } = this.props.match.params
+    this.props.fetchRound(tournamentId, eventId, roundId)
+  }
+
+  public componentDidUpdate(prevProps) {
+    if (this.props.match.params !== prevProps.match.params) {
+      const { tournamentId, eventId, roundId } = this.props.match.params
+      this.props.fetchRound(tournamentId, eventId, roundId)
+    }
   }
 
   public render() {
@@ -45,7 +52,10 @@ export class LivePage extends React.Component<any, any> {
             <MainSidebarList data={MainBoardSidebarCategoriesStub} onClick={this.handleRoundChange} />
           </Col>
         </Row>
+        <Link to="/tournaments/1/events/1/rounds/1">button</Link>
+        <Link to="/tournaments/1/events/2/rounds/2">button</Link>
       </Row>
+
     )
   }
 }

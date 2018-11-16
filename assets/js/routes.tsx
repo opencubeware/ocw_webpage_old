@@ -9,7 +9,7 @@ import { NewsPage } from './components/static/News'
 import LivePage from './containers/live-page'
 import Navbar from './components/navbar/Navbar'
 
-const DefaultContainer = () => (
+const StaticPages = () => (
   <div>
     <Navbar />
     <Route exact={true} path="/" component={HomePage} />
@@ -22,7 +22,7 @@ const DefaultContainer = () => (
 )
 export const routes = (
   <Switch>
-    <Route exact={true} path="/tournaments/:tournamentId" component={LivePage} />
-    <Route component={DefaultContainer} />
+    <Route path="/tournaments/:tournamentId/events/:eventId/rounds/:roundId" component={LivePage} />
+    <Route component={StaticPages} />
   </Switch>
 )
