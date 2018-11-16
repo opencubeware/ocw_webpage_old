@@ -9,7 +9,8 @@ import { routes } from './routes'
 
 import 'phoenix_html'
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
+const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore)
+const store = createStoreWithMiddleware(rootReducer)
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,13 +1,12 @@
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
-// import Root from './Root'
 import { EventsPage } from './components/static/Events'
 import { AboutPage } from './components/static/About'
 import { TeamPage } from './components/static/Team'
 import { ContactPage } from './components/static/Contact'
 import { HomePage } from './components/static/Home'
 import { NewsPage } from './components/static/News'
-import { TournamentShowPage } from './components/tournament/tournament-show-page'
+import LivePage from './containers/live-page'
 import Navbar from './components/navbar/Navbar'
 
 const DefaultContainer = () => (
@@ -23,7 +22,7 @@ const DefaultContainer = () => (
 )
 export const routes = (
   <Switch>
-    <Route exact={true} path="/tournaments/:tournamentId" component={TournamentShowPage} />
+    <Route exact={true} path="/tournaments/:tournamentId" component={LivePage} />
     <Route component={DefaultContainer} />
   </Switch>
 )

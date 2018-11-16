@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux'
-import event from './events'
+import round from './rounds'
 
-export default combineReducers({event})
+export default combineReducers({round})

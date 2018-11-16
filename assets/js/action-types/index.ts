@@ -1,1 +1,1 @@
-export const RECEIVE_EVENT = 'RECEIVE_EVENT'
+export const RECEIVE_ROUND = 'RECEIVE_ROUND'
