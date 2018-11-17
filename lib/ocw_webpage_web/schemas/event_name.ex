@@ -1,7 +1,7 @@
-defmodule OcwWebpageWeb.Schemas.RoundName do
+defmodule OcwWebpageWeb.Schemas.EventName do
   use Ecto.Schema
 
-  schema "round_names" do
+  schema "event_names" do
     field(:name, :string)
     field(:name_id, :integer)
   end

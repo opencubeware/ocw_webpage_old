@@ -1,2 +1,2 @@
-alias OcwWebpageWeb.Schemas.{Tournament, RoundName}
+alias OcwWebpageWeb.Schemas.{Tournament, RoundName, EventName}
 alias OcwWebpage.Repo
