@@ -20,14 +20,12 @@ export class LivePage extends React.Component<any, any> {
   }
 
   public componentDidMount() {
-    const { tournamentId, eventId, roundId } = this.props.match.params
-    this.props.fetchRound(tournamentId, eventId, roundId)
+    this.fetchSpecificRound()
   }
 
   public componentDidUpdate(prevProps) {
     if (this.props.match.params !== prevProps.match.params) {
-      const { tournamentId, eventId, roundId } = this.props.match.params
-      this.props.fetchRound(tournamentId, eventId, roundId)
+      this.fetchSpecificRound()
     }
   }
 
@@ -57,6 +55,10 @@ export class LivePage extends React.Component<any, any> {
       </Row>
 
     )
+  }
+  private fetchSpecificRound() {
+    const { tournamentId, eventId, roundId } = this.props.match.params
+    this.props.fetchRound(tournamentId, eventId, roundId)
   }
 }
 
