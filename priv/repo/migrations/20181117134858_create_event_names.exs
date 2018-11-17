@@ -1,4 +1,4 @@
-defmodule OcwWebpage.Repo.Migrations.CreateRounds do
+defmodule OcwWebpage.Repo.Migrations.CreateEventNames do
   use Ecto.Migration
 
   def change do
@@ -6,5 +6,7 @@ defmodule OcwWebpage.Repo.Migrations.CreateRounds do
       add(:name, :string, null: false)
       add(:name_id, :integer, null: false)
     end
+
+    create(unique_index(:event_names, [:name_id]))
   end
 end
