@@ -1,8 +1,12 @@
-alias OcwWebpageWeb.Schemas.{
+alias OcwWebpage.LivePage.{
   Tournament,
-  RoundName,
-  EventName,
+  Round,
   Event
+}
+
+alias OcwWebpage.Constants.{
+  RoundName,
+  EventNam
 }
 
 alias OcwWebpage.Repo
