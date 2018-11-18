@@ -1,4 +1,4 @@
-defmodule OcwWebpageWeb.Schemas.RoundName do
+defmodule OcwWebpage.Constants.RoundName do
   use Ecto.Schema
 
   schema "round_names" do

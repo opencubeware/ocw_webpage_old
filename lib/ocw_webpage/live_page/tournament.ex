@@ -1,4 +1,4 @@
-defmodule OcwWebpageWeb.Schemas.Tournament do
+defmodule OcwWebpage.LivePage.Tournament do
   use Ecto.Schema
 
   schema "tournaments" do

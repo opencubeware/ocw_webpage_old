@@ -1,6 +1,6 @@
-defmodule OcwWebpageWeb.Schemas.EventName do
+defmodule OcwWebpage.Constants.EventName do
   use Ecto.Schema
-  alias OcwWebpageWeb.Schemas.Event
+  alias OcwWebpage.Event
 
   schema "event_names" do
     field(:name, :string)
