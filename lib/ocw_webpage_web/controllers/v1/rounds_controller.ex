@@ -16,8 +16,8 @@ defmodule OcwWebpageWeb.Api.V1.Rounds do
   defp mock(_tournament_id, event_name, round_name) do
     %{
       tournament: %{id: "1"},
-      event: %{name: EventName.event_name_map(event_name)},
-      round: %{name: RoundName.round_name_map(round_name)}
+      event: %{name: EventName.to_string(event_name)},
+      round: %{name: RoundName.to_string(round_name)}
     }
   end
 end
