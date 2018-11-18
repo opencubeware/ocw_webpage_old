@@ -50,8 +50,8 @@ export class LivePage extends React.Component<any, any> {
             <MainSidebarList data={MainBoardSidebarCategoriesStub} onClick={this.handleRoundChange} />
           </Col>
         </Row>
-        <Link to="/tournaments/1/events/1/rounds/1">button</Link>
-        <Link to="/tournaments/1/events/2/rounds/2">button</Link>
+        <Link to="/tournaments/1/events/3x3x3/rounds/FirstRound">button</Link>
+        <Link to="/tournaments/1/events/4x4x4/rounds/SecondRound">button</Link>
       </Row>
 
     )

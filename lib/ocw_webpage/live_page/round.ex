@@ -12,14 +12,14 @@ defmodule OcwWebpage.LivePage.Round do
   end
 
   def name(%Round{round_name: %RoundName{name: _name}} = preloaded_round) do
-    preloaded_round.round.name
+    {:ok, preloaded_round.round_name.name}
   end
 
   def name(%Round{round_name: %Ecto.Association.NotLoaded{}, round_name_id: nil}) do
-    "Round does not have name"
+    {:error, :round_does_not_have_name}
   end
 
   def name(%Round{round_name: %Ecto.Association.NotLoaded{}, round_name_id: _id}) do
-    "RoundName not preloaded"
+    {:error, :round_name_not_preloaded}
   end
 end

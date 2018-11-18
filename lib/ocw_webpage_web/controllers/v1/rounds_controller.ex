@@ -1,44 +1,23 @@
 defmodule OcwWebpageWeb.Api.V1.Rounds do
   use OcwWebpageWeb, :controller
 
+  alias OcwWebpage.Constants.{EventName, RoundName}
+
   def show(conn, %{
         "tournament_id" => tournament_id,
-        "event_id" => event_id,
-        "round_id" => round_id
+        "event_name" => event_name,
+        "round_name" => round_name
       }) do
     conn
     |> put_status(:accepted)
-    |> json(mock(tournament_id, event_id, round_id))
+    |> json(mock(tournament_id, event_name, round_name))
   end
 
-  defp mock(_tournament_id, event_id, round_id) do
+  defp mock(_tournament_id, event_name, round_name) do
     %{
       tournament: %{id: "1"},
-      event: event_mock(event_id),
-      round: round_mock(round_id)
+      event: %{name: EventName.event_name_map(event_name)},
+      round: %{name: RoundName.round_name_map(round_name)}
     }
-  end
-
-  defp event_mock(event_id) do
-    event_name =
-      case event_id do
-        "1" -> "3x3x3"
-        "2" -> "4x4x4"
-        "3" -> "5x5x5"
-        "4" -> "Megaminx"
-      end
-
-    %{id: event_id, name: event_name}
-  end
-
-  defp round_mock(round_id) do
-    round_name =
-      case round_id do
-        "1" -> "First Round"
-        "2" -> "Second Round"
-        "3" -> "Final Round"
-      end
-
-    %{id: round_id, name: round_name}
   end
 end

@@ -18,7 +18,7 @@ defmodule OcwWebpageWeb.Router do
 
     scope "/v1" do
       get(
-        "/tournaments/:tournament_id/events/:event_id/rounds/:round_id",
+        "/tournaments/:tournament_id/events/:event_name/rounds/:round_name",
         Api.V1.Rounds,
         :show
       )
