@@ -4,9 +4,7 @@ defmodule OcwWebpage.Factory do
   alias OcwWebpage.Constants.{EventName, RoundName}
 
   def event_factory() do
-    %Event{
-      event_name: build(:event_name)
-    }
+    %Event{}
   end
 
   def event_name_factory() do
@@ -17,9 +15,7 @@ defmodule OcwWebpage.Factory do
   end
 
   def round_factory() do
-    %Round{
-      round_name: build(:round_name)
-    }
+    %Round{}
   end
 
   def round_name_factory() do
@@ -27,5 +23,13 @@ defmodule OcwWebpage.Factory do
       name: "First Round",
       name_id: 1
     }
+  end
+
+  def with_event(%EventName{} = event_name) do
+    insert(:event, event_name: event_name)
+  end
+
+  def with_round(%RoundName{} = round_name) do
+    insert(:round, round_name: round_name)
   end
 end
