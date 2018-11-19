@@ -18,7 +18,7 @@ defmodule OcwWebpage.LivePage.RoundTest do
     end
 
     test "displays error message when round_name not preloaded" do
-      round_name = build(:round_name, name: "TestName") |> with_round()
+      build(:round_name, name: "TestName") |> with_round()
       [round] = Repo.all(Round)
 
       assert Round.name(round) == {:error, :round_name_not_preloaded}
