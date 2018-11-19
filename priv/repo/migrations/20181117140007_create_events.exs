@@ -12,6 +12,8 @@ defmodule OcwWebpage.Repo.Migrations.CreateEvents do
         ),
         null: true
       )
+
+      add(:tournament_id, references(:tournaments), null: false)
     end
   end
 end

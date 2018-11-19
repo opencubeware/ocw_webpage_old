@@ -1,16 +1,4 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     OcwWebpage.Repo.insert!(%OcwWebpage.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
-
-alias OcwWebpageWeb.Schemas.{RoundName, EventName}
+alias OcwWebpage.Constants.{RoundName, EventName}
 alias OcwWebpage.Repo
 
 round_names = [

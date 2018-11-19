@@ -12,6 +12,8 @@ defmodule OcwWebpage.Repo.Migrations.CreateRounds do
         ),
         null: true
       )
+
+      add(:event_id, references(:events), null: false)
     end
   end
 end
