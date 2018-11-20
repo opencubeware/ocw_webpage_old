@@ -1,6 +1,6 @@
 defmodule OcwWebpage.LivePage.Round do
   use Ecto.Schema
-  alias OcwWebpage.LivePage.Round
+  alias OcwWebpage.LivePage.{Event, Result, Round}
   alias OcwWebpage.Constants.RoundName
 
   schema "rounds" do
@@ -9,6 +9,9 @@ defmodule OcwWebpage.LivePage.Round do
       references: :name_id,
       type: :integer
     )
+
+    has_many(:results, Result)
+    belongs_to(:event, Event)
   end
 
   def name(%Round{round_name: %RoundName{name: _name}} = preloaded_round) do

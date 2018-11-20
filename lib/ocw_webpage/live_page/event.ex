@@ -1,6 +1,6 @@
 defmodule OcwWebpage.LivePage.Event do
   use Ecto.Schema
-  alias OcwWebpage.LivePage.Event
+  alias OcwWebpage.LivePage.{Event, Round, Tournament}
   alias OcwWebpage.Constants.EventName
 
   schema "events" do
@@ -9,6 +9,9 @@ defmodule OcwWebpage.LivePage.Event do
       references: :name_id,
       type: :integer
     )
+
+    belongs_to(:tournament, Tournament)
+    has_many(:rounds, Round)
   end
 
   def name(%Event{event_name: %EventName{name: _name}} = preloaded_event) do
