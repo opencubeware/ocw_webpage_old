@@ -1,5 +1,6 @@
 alias OcwWebpage.Constants.{RoundName, EventName}
-alias OcwWebpage.Repo
+alias OcwWebpage.LivePage.{Round, Event, Tournament, Result}
+alias OcwWebpage.{Person, Repo}
 
 round_names = [
   ["First Round", 1],
@@ -33,3 +34,115 @@ event_names = [
 
 Enum.each(round_names, fn [name, id] -> Repo.insert(%RoundName{name: name, name_id: id}) end)
 Enum.each(event_names, fn [name, id] -> Repo.insert(%EventName{name: name, name_id: id}) end)
+
+event_name1 = Repo.get(EventName, 1)
+event_name2 = Repo.get(EventName, 2)
+
+round_name1 = Repo.get(RoundName, 1)
+round_name2 = Repo.get(RoundName, 2)
+
+person1 =
+  Repo.insert!(%Person{
+    first_name: "John",
+    last_name: "Doe",
+    wca_id: "2018dupa",
+    country: "England"
+  })
+
+person2 =
+  Repo.insert!(%Person{
+    first_name: "Rafał",
+    last_name: "Studnicki",
+    wca_id: "1984down",
+    country: "Poland"
+  })
+
+person3 =
+  Repo.insert!(%Person{
+    first_name: "Kamil",
+    last_name: "Zieliński",
+    wca_id: "2009lol",
+    country: "France"
+  })
+
+tournament = Repo.insert!(%Tournament{name: "Cracow Open 2013"})
+
+event1 = Repo.insert!(%Event{event_name: event_name1, tournament: tournament})
+event2 = Repo.insert!(%Event{event_name: event_name2, tournament: tournament})
+
+round1 = Repo.insert!(%Round{round_name: round_name1, event: event1})
+round2 = Repo.insert!(%Round{round_name: round_name2, event: event1})
+round3 = Repo.insert!(%Round{round_name: round_name1, event: event2})
+round4 = Repo.insert!(%Round{round_name: round_name2, event: event2})
+
+Repo.insert(%Result{
+  round: round1,
+  attempts: ["00:05.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person1.id
+})
+
+Repo.insert(%Result{
+  round: round1,
+  attempts: ["00:08.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person2.id
+})
+
+Repo.insert(%Result{
+  round: round1,
+  attempts: ["00:07.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person3.id
+})
+
+Repo.insert(%Result{
+  round: round3,
+  attempts: ["00:03.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person1.id
+})
+
+Repo.insert(%Result{
+  round: round3,
+  attempts: ["00:02.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person2.id
+})
+
+Repo.insert(%Result{
+  round: round3,
+  attempts: ["00:01.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person3.id
+})
+
+Repo.insert(%Result{
+  round: round2,
+  attempts: ["00:01.10", "00:01.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person1.id
+})
+
+Repo.insert(%Result{
+  round: round2,
+  attempts: ["00:02.10", "00:02.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person2.id
+})
+
+Repo.insert(%Result{
+  round: round2,
+  attempts: ["00:03.10", "00:03.20", "00:07.30", "00:05.80", "00:07.40"],
+  competitor_id: person3.id
+})
+
+Repo.insert(%Result{
+  round: round4,
+  attempts: ["00:01.10", "00:01.20", "00:01.30", "00:05.80", "00:07.40"],
+  competitor_id: person1.id
+})
+
+Repo.insert(%Result{
+  round: round4,
+  attempts: ["00:02.10", "00:02.20", "00:02.30", "00:05.80", "00:07.40"],
+  competitor_id: person2.id
+})
+
+Repo.insert(%Result{
+  round: round4,
+  attempts: ["00:03.10", "00:03.20", "00:01.30", "00:05.80", "00:07.40"],
+  competitor_id: person3.id
+})
