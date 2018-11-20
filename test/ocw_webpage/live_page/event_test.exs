@@ -20,8 +20,8 @@ defmodule OcwWebpage.LivePage.EventTest do
     end
 
     test "displays error message when event_name is not definned", %{tournament: tournament} do
-      insert(:event, event_name: nil, tournament: tournament)
-      [event] = Repo.all(Event)
+      event = insert(:event, event_name: nil, tournament: tournament)
+      event = Repo.get(Event, event.id)
 
       assert Event.name(event) == {:error, :event_does_not_have_name}
     end
@@ -30,8 +30,8 @@ defmodule OcwWebpage.LivePage.EventTest do
       tournament: tournament,
       event_name: event_name
     } do
-      insert(:event, event_name: event_name, tournament: tournament)
-      [event] = Repo.all(Event)
+      event = insert(:event, event_name: event_name, tournament: tournament)
+      event = Repo.get(Event, event.id)
 
       assert Event.name(event) == {:error, :event_name_not_preloaded}
     end

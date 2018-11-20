@@ -20,8 +20,8 @@ defmodule OcwWebpage.LivePage.RoundTest do
     end
 
     test "displays error message when round_name is not definned", %{event: event} do
-      insert(:round, event: event)
-      [round] = Repo.all(Round)
+      round = insert(:round, event: event)
+      round = Repo.get(Round, round.id)
 
       assert Round.name(round) == {:error, :round_does_not_have_name}
     end
@@ -30,8 +30,8 @@ defmodule OcwWebpage.LivePage.RoundTest do
       event: event,
       round_name: round_name
     } do
-      insert(:round, event: event, round_name: round_name)
-      [round] = Repo.all(Round)
+      round = insert(:round, event: event, round_name: round_name)
+      round = Repo.get(Round, round.id)
 
       assert Round.name(round) == {:error, :round_name_not_preloaded}
     end
