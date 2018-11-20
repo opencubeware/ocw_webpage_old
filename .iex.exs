@@ -1,12 +1,13 @@
 alias OcwWebpage.LivePage.{
   Tournament,
   Round,
-  Event
+  Event,
+  Result
 }
 
 alias OcwWebpage.Constants.{
   RoundName,
-  EventNam
+  EventName
 }
 
-alias OcwWebpage.Repo
+alias OcwWebpage.{Person, Repo}
