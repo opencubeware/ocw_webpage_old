@@ -1,7 +1,7 @@
-defmodule OcwWebpage.Person do
+defmodule OcwWebpage.DataAccess.Schemas.Person do
   use Ecto.Schema
 
-  alias OcwWebpage.LivePage.Result
+  alias OcwWebpage.DataAccess.Schemas.Result
 
   schema "persons" do
     field(:first_name, :string)

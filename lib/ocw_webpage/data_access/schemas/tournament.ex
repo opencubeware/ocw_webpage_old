@@ -1,7 +1,7 @@
-defmodule OcwWebpage.LivePage.Tournament do
+defmodule OcwWebpage.DataAccess.Schemas.Tournament do
   use Ecto.Schema
 
-  alias OcwWebpage.LivePage.Event
+  alias OcwWebpage.DataAccess.Schemas.Event
 
   schema "tournaments" do
     field(:name, :string)

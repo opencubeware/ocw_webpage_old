@@ -1,7 +1,7 @@
-defmodule OcwWebpage.LivePage.Result do
+defmodule OcwWebpage.DataAccess.Schemas.Result do
   use Ecto.Schema
 
-  alias OcwWebpage.{LivePage.Round, Person}
+  alias OcwWebpage.DataAccess.Schemas.{Person, Round}
 
   schema "results" do
     field(:attempts, {:array, :integer})
