@@ -4,7 +4,7 @@ defmodule OcwWebpage.Repo.Migrations.CreateResults do
   def change do
     create table(:results) do
       add(:round_id, references(:rounds), null: false)
-      add(:attempts, {:array, :string})
+      add(:attempts, {:array, :integer})
       add(:competitor_id, references(:persons), null: false)
     end
   end

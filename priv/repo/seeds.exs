@@ -77,72 +77,72 @@ round4 = Repo.insert!(%Round{round_name: round_name2, event: event2})
 
 Repo.insert(%Result{
   round: round1,
-  attempts: ["00:05.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [5100, 6200, 7300, 5800, 7400],
   competitor_id: person1.id
 })
 
 Repo.insert(%Result{
   round: round1,
-  attempts: ["00:08.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [8100, 6200, 7300, 5800, 7400],
   competitor_id: person2.id
 })
 
 Repo.insert(%Result{
   round: round1,
-  attempts: ["00:07.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [7100, 6200, 5800, 7200, 4800],
   competitor_id: person3.id
 })
 
 Repo.insert(%Result{
   round: round3,
-  attempts: ["00:03.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [3100, 6200, 7300, 5300, 7400],
   competitor_id: person1.id
 })
 
 Repo.insert(%Result{
   round: round3,
-  attempts: ["00:02.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [7100, 6200, 5800, 7200, 4800],
   competitor_id: person2.id
 })
 
 Repo.insert(%Result{
   round: round3,
-  attempts: ["00:01.10", "00:06.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [3100, 6200, 7300, 5300, 7400],
   competitor_id: person3.id
 })
 
 Repo.insert(%Result{
   round: round2,
-  attempts: ["00:01.10", "00:01.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [8100, 6200, 7300, 5800, 7400],
   competitor_id: person1.id
 })
 
 Repo.insert(%Result{
   round: round2,
-  attempts: ["00:02.10", "00:02.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [3100, 6200, 7300, 5300, 7400],
   competitor_id: person2.id
 })
 
 Repo.insert(%Result{
   round: round2,
-  attempts: ["00:03.10", "00:03.20", "00:07.30", "00:05.80", "00:07.40"],
+  attempts: [8100, 6200, 7300, 5800, 7400],
   competitor_id: person3.id
 })
 
 Repo.insert(%Result{
   round: round4,
-  attempts: ["00:01.10", "00:01.20", "00:01.30", "00:05.80", "00:07.40"],
+  attempts: [3100, 6200, 7300, 5300, 7400],
   competitor_id: person1.id
 })
 
 Repo.insert(%Result{
   round: round4,
-  attempts: ["00:02.10", "00:02.20", "00:02.30", "00:05.80", "00:07.40"],
+  attempts: [8100, 6200, 7300, 5800, 7400],
   competitor_id: person2.id
 })
 
 Repo.insert(%Result{
   round: round4,
-  attempts: ["00:03.10", "00:03.20", "00:01.30", "00:05.80", "00:07.40"],
+  attempts: [3100, 6200, 7300, 5300, 7400],
   competitor_id: person3.id
 })

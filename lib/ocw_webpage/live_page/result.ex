@@ -4,7 +4,7 @@ defmodule OcwWebpage.LivePage.Result do
   alias OcwWebpage.{LivePage.Round, Person}
 
   schema "results" do
-    field(:attempts, {:array, :string})
+    field(:attempts, {:array, :integer})
     belongs_to(:round, Round)
     belongs_to(:person, Person, foreign_key: :competitor_id)
   end
