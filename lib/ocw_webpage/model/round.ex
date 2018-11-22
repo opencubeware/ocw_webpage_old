@@ -1,40 +1,24 @@
 defmodule OcwWebpage.Model.Round do
+  alias OcwWebpage.Model
   defstruct [:event, :name, :results]
 
-  def new(%{
-        event: %{event_name: %{name: event_name}, tournament: %{name: tournament_name}},
-        round_name: %{name: round_name},
-        results: results
-      }) do
-    event = %{name: event_name, tournament_name: tournament_name}
-
-    struct(__MODULE__, %{event: event, name: round_name, results: map_results(results)})
+  def new(%{event: event, round_name: %{name: round_name}, results: results}) do
+    struct(__MODULE__, %{
+      event: Model.Event.new(event),
+      name: round_name,
+      results: Enum.map(results, &Model.Result.new/1)
+    })
   end
 
   def to_map(%__MODULE__{
-        event: %{name: event_name, tournament_name: tournament_name},
+        event: event,
         name: name,
         results: results
       }) do
     %{
       name: name,
-      tournament: %{name: tournament_name},
-      event: %{name: event_name},
-      results: results
+      event: Model.Event.to_map(event),
+      results: Enum.map(results, &Model.Result.to_map/1)
     }
-  end
-
-  defp map_results(results) do
-    Enum.map(results, fn %{attempts: attempts, person: person} ->
-      %{
-        attempts: attempts,
-        competitor: %{
-          first_name: person.first_name,
-          last_name: person.last_name,
-          wca_id: person.wca_id,
-          country: person.country
-        }
-      }
-    end)
   end
 end

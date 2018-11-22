@@ -32,7 +32,7 @@ export class LivePage extends React.Component<any, any> {
   public render() {
     const { currentRound } = this.props
     console.warn(this.props)
-    const tournamentName = currentRound && currentRound.tournament && currentRound.tournament.name
+    const tournamentName = currentRound && currentRound.event && currentRound.event.tournament_name
     return (
       <Row className="tournament-show-page">
         <Row className="header">
