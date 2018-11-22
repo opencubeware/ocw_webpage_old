@@ -31,7 +31,7 @@ export class LivePage extends React.Component<any, any> {
 
   public render() {
     const { currentRound } = this.props
-    const name = 'Cracow Open 2013'
+    const tournamentName = currentRound && currentRound.tournament && currentRound.tournament.name
     return (
       <Row className="tournament-show-page">
         <Row className="header">
@@ -46,19 +46,21 @@ export class LivePage extends React.Component<any, any> {
             <MainBoardTable data={MainBoardTableStub} />
           </Col>
           <Col s={3} className="sidebar">
-            <MainSidebarCard name={name} />
+            {tournamentName && (
+              <MainSidebarCard name={tournamentName} />
+            )}
             <MainSidebarList data={MainBoardSidebarCategoriesStub} onClick={this.handleRoundChange} />
           </Col>
         </Row>
-        <Link to="/tournaments/1/events/3x3x3/rounds/FirstRound">button</Link>
-        <Link to="/tournaments/1/events/4x4x4/rounds/SecondRound">button</Link>
+        <Link to="/tournaments/Cracow%20Open%202013/events/3x3x3/rounds/First%20Round">button</Link>
+        <Link to="/tournaments/Cracow%20Open%202013/events/3x3x3/rounds/Second%20Round">button</Link>
       </Row>
 
     )
   }
   private fetchSpecificRound() {
-    const { tournamentId, eventId, roundId } = this.props.match.params
-    this.props.fetchRound(tournamentId, eventId, roundId)
+    const { tournamentName, eventName, roundName } = this.props.match.params
+    this.props.fetchRound(tournamentName, eventName, roundName)
   }
 }
 

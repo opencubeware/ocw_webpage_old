@@ -22,7 +22,7 @@ const StaticPages = () => (
 )
 export const routes = (
   <Switch>
-    <Route path="/tournaments/:tournamentId/events/:eventId/rounds/:roundId" component={LivePage} />
+    <Route path="/tournaments/:tournamentName/events/:eventName/rounds/:roundName" component={LivePage} />
     <Route component={StaticPages} />
   </Switch>
 )

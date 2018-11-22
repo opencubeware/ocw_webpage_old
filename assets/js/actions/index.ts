@@ -1,9 +1,10 @@
 import { RECEIVE_ROUND } from '../action-types'
 import axios from 'axios'
 
-export const fetchRound = (tournamentId, eventId, roundId) => {
+export const fetchRound = (tournamentName, eventName, roundName) => {
   return async (dispatch) => {
-    const response = await axios.get(`/api/v1/tournaments/${tournamentId}/events/${eventId}/rounds/${roundId}`)
+    const response =
+      await axios.get(`/api/v1/tournaments/${tournamentName}/events/${eventName}/rounds/${roundName}`)
     return dispatch(receiveMatch(response.data))
   }
 }

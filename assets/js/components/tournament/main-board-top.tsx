@@ -10,10 +10,7 @@ interface EventRound {
       id: string
       name: string
     }
-    round: {
-      id: string
-      name: string
-    }
+    name: string
   }
 }
 const MainBoardTop: React.SFC<EventRound> = ({ data }) => {
@@ -23,7 +20,7 @@ const MainBoardTop: React.SFC<EventRound> = ({ data }) => {
         {data.event.name}
       </Col>
       <Col s={2} className="round">
-        {data.round. name}
+        {data.name}
       </Col>
       <Col s={8} className="description">
         Description
