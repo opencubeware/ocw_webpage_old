@@ -15,11 +15,6 @@ import { fetchRound } from '../actions'
 import { connect } from 'react-redux'
 
 export class LivePage extends React.Component<any, any> {
-  public handleRoundChange(this) {
-    const { props, round, event, tournamentName } = this
-    props.fetchRound(tournamentName, event, round)
-  }
-
   public componentDidMount() {
     this.fetchSpecificRound()
   }
@@ -32,6 +27,7 @@ export class LivePage extends React.Component<any, any> {
 
   public render() {
     const { currentRound } = this.props
+    const results = currentRound && currentRound.results
     const tournamentName = currentRound && currentRound.tournament_name
     return (
       <Row className="tournament-show-page">
@@ -44,17 +40,15 @@ export class LivePage extends React.Component<any, any> {
               <MainBoardTop data={currentRound} />
             )}
             <MainBoardRecords data={MainBoardRecordStub} />
-            <MainBoardTable data={MainBoardTableStub} />
+            {results && (
+              <MainBoardTable data={results} />
+            )}
           </Col>
           <Col s={3} className="sidebar">
             {tournamentName && (
               <MainSidebarCard name={tournamentName} />
             )}
-            <MainSidebarList
-              data={MainBoardSidebarCategoriesStub}
-              onClick={this.handleRoundChange}
-              props={this.props}
-            />
+            <MainSidebarList data={MainBoardSidebarCategoriesStub}/>
           </Col>
         </Row>
       </Row>

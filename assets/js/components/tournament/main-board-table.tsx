@@ -1,22 +1,16 @@
 import * as React from 'react'
 import { Col, Row, Table } from 'react-materialize'
+import { Person } from 'js/models/person'
 
-interface Attempt {
-  result: string
-  record?: string
-}
-
-interface MainBoardTableCompetitor {
-  place: number
-  country: string
-  full_name: string
-  attempts: Attempt[]
-  best_attempt: Attempt
-  average: Attempt
+interface MainBoardTableResult {
+  competitor: Person
+  attempts: string[]
+  best_solve: string
+  average: string
 }
 
 interface MainBoardTable {
-  data: MainBoardTableCompetitor[]
+  data: MainBoardTableResult[]
 }
 
 const cellWithRecord = (solve, solveRecord, key, nameOfClass) => {
@@ -31,11 +25,11 @@ const cellWithRecord = (solve, solveRecord, key, nameOfClass) => {
   )
 }
 
-const mapAttemptsToTds = (attempts: Attempt[]) => {
+const mapAttemptsToTds = (attempts: string[]) => {
   return (
     attempts.map(
-      (attempt: Attempt, id: number) =>
-        cellWithRecord(attempt.result, attempt.record, id, '')
+      (attempt: string, id: number) =>
+        cellWithRecord(attempt, null, id, '')
     )
   )
 }
@@ -61,22 +55,22 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }: MainBoardTable) => 
           </thead>
           <tbody>
             {data.map(
-              (competitor) =>
-                <tr key={competitor.place}>
+              (result, i) =>
+                <tr key={i}>
                   {
                     [
-                      <td key={competitor.place}>
-                        {competitor.place}
+                      <td key={i}>
+                        {i + 1}
                       </td>,
-                      <td key={competitor.country}>
-                        {competitor.country}
+                      <td key={result.competitor.country}>
+                        {result.competitor.country}
                       </td>,
-                      <td key={competitor.full_name}>
-                        <b>{competitor.full_name}</b>
+                      <td key={`${result.competitor.first_name} ${result.competitor.last_name}`}>
+                        <b>{`${result.competitor.first_name} ${result.competitor.last_name}`}</b>
                       </td>,
-                      mapAttemptsToTds(competitor.attempts),
-                      cellWithRecord(competitor.best_attempt.result, competitor.best_attempt.record, 'best', ''),
-                      cellWithRecord(competitor.average.result, competitor.average.record, 'average', 'average-red'),
+                      mapAttemptsToTds(result.attempts),
+                      cellWithRecord(result.best_solve, null, 'best', ''),
+                      cellWithRecord(result.average, null, 'average', 'average-red'),
                     ]
                   }
                 </tr>
