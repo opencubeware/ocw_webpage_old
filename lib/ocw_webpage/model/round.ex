@@ -25,7 +25,9 @@ defmodule OcwWebpage.Model.Round do
       name: name,
       event: Model.Event.to_map(event),
       tournament_name: tournament_name,
-      results: Enum.map(results, &Model.Result.to_map/1)
+      results:
+        Enum.map(results, &Model.Result.to_map/1)
+        |> Enum.sort_by(fn map -> {map.average, map.best_solve} end)
     }
   end
 end
