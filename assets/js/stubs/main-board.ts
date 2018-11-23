@@ -47,6 +47,7 @@ export const MainBoardRecordStub = {
 }
 
 export const MainBoardSidebarCategoriesStub = {
+  tournament_name: 'Cracow Open 2013',
   events: [
     {
       name: '3x3x3',

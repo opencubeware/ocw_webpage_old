@@ -16,7 +16,8 @@ import { connect } from 'react-redux'
 
 export class LivePage extends React.Component<any, any> {
   public handleRoundChange(this) {
-    console.warn(this)
+    const { props, round, event, tournamentName } = this
+    props.fetchRound(tournamentName, event, round)
   }
 
   public componentDidMount() {
@@ -49,11 +50,13 @@ export class LivePage extends React.Component<any, any> {
             {tournamentName && (
               <MainSidebarCard name={tournamentName} />
             )}
-            <MainSidebarList data={MainBoardSidebarCategoriesStub} onClick={this.handleRoundChange} />
+            <MainSidebarList
+              data={MainBoardSidebarCategoriesStub}
+              onClick={this.handleRoundChange}
+              props={this.props}
+            />
           </Col>
         </Row>
-        <Link to="/tournaments/Cracow%20Open%202013/events/3x3x3/rounds/First%20Round">button</Link>
-        <Link to="/tournaments/Cracow%20Open%202013/events/3x3x3/rounds/Second%20Round">button</Link>
       </Row>
 
     )
