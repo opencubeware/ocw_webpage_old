@@ -30,7 +30,8 @@ defmodule OcwWebpage.Model.Round do
   end
 
   defp map_results(results) do
-    Enum.map(results, &Model.Result.to_map/1)
+    results
+    |> Enum.map(&Model.Result.to_map/1)
     |> Enum.sort_by(fn map -> {map.average, map.best_solve} end)
   end
 end
