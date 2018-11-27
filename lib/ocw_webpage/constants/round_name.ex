@@ -1,9 +1,15 @@
 defmodule OcwWebpage.Constants.RoundName do
   use Ecto.Schema
+  alias OcwWebpage.DataAccess.Schemas.Round
 
   schema "round_names" do
     field(:name, :string)
-    field(:name_id, :integer)
+
+    has_many(:rounds, Round,
+      foreign_key: :round_name_fk,
+      references: :name,
+      on_delete: :nilify_all
+    )
   end
 
   def to_string("FirstRound"), do: "First Round"

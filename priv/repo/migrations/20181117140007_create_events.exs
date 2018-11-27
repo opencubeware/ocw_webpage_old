@@ -4,11 +4,11 @@ defmodule OcwWebpage.Repo.Migrations.CreateEvents do
   def change do
     create table(:events) do
       add(
-        :event_name_id,
+        :event_name_fk,
         references("event_names",
-          name: "event_event_name_name_id_fkey",
-          column: :name_id,
-          type: :integer
+          name: "event_name_fkey",
+          column: :name,
+          type: :string
         ),
         null: true
       )

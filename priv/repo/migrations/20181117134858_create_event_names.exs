@@ -4,9 +4,8 @@ defmodule OcwWebpage.Repo.Migrations.CreateEventNames do
   def change do
     create table(:event_names) do
       add(:name, :string, null: false)
-      add(:name_id, :integer, null: false)
     end
 
-    create(unique_index(:event_names, [:name_id]))
+    create(unique_index(:event_names, [:name]))
   end
 end

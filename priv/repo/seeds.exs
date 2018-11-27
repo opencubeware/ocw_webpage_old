@@ -1,6 +1,6 @@
 alias OcwWebpage.Constants.{RoundName, EventName}
-alias OcwWebpage.LivePage.{Round, Event, Tournament, Result}
-alias OcwWebpage.{Person, Repo}
+alias OcwWebpage.DataAccess.Schemas.{Round, Event, Person, Tournament, Result}
+alias OcwWebpage.Repo
 
 round_names = [
   ["First Round", 1],
@@ -32,14 +32,17 @@ event_names = [
   ["3x3x3 Multi-Blind", 18]
 ]
 
-Enum.each(round_names, fn [name, id] -> Repo.insert(%RoundName{name: name, name_id: id}) end)
-Enum.each(event_names, fn [name, id] -> Repo.insert(%EventName{name: name, name_id: id}) end)
+Enum.each(round_names, fn [name, id] -> Repo.insert(%RoundName{name: name, id: id}) end)
+Enum.each(event_names, fn [name, id] -> Repo.insert(%EventName{name: name, id: id}) end)
 
 event_name1 = Repo.get(EventName, 1)
 event_name2 = Repo.get(EventName, 2)
 
 round_name1 = Repo.get(RoundName, 1)
 round_name2 = Repo.get(RoundName, 2)
+round_name3 = Repo.get(RoundName, 3)
+round_name4 = Repo.get(RoundName, 4)
+round_name5 = Repo.get(RoundName, 5)
 
 person1 =
   Repo.insert!(%Person{
@@ -74,6 +77,12 @@ round1 = Repo.insert!(%Round{round_name: round_name1, event: event1})
 round2 = Repo.insert!(%Round{round_name: round_name2, event: event1})
 round3 = Repo.insert!(%Round{round_name: round_name1, event: event2})
 round4 = Repo.insert!(%Round{round_name: round_name2, event: event2})
+
+rounds = [round_name1, round_name2, round_name3, round_name4, round_name5]
+
+Enum.each(0..500, fn x ->
+  Repo.insert(%Round{round_name: Enum.random(rounds), event: event2})
+end)
 
 Repo.insert(%Result{
   round: round1,

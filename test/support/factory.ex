@@ -1,7 +1,6 @@
 defmodule OcwWebpage.Factory do
   use ExMachina.Ecto, repo: OcwWebpage.Repo
-  alias OcwWebpage.Person
-  alias OcwWebpage.LivePage.{Event, Result, Round, Tournament}
+  alias OcwWebpage.DataAccess.Schemas.{Event, Person, Result, Round, Tournament}
   alias OcwWebpage.Constants.{EventName, RoundName}
 
   def person_factory() do
@@ -33,15 +32,13 @@ defmodule OcwWebpage.Factory do
 
   def event_name_factory() do
     %EventName{
-      name: "3x3x3",
-      name_id: sequence(:name_id, & &1)
+      name: "3x3x3"
     }
   end
 
   def round_name_factory() do
     %RoundName{
-      name: "First Round",
-      name_id: sequence(:name_id, & &1)
+      name: "First Round"
     }
   end
 end

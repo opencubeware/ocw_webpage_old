@@ -5,9 +5,9 @@ defmodule OcwWebpage.DataAccess.Schemas.Event do
 
   schema "events" do
     belongs_to(:event_name, EventName,
-      foreign_key: :event_name_id,
-      references: :name_id,
-      type: :integer
+      foreign_key: :event_name_fk,
+      references: :name,
+      type: :string
     )
 
     belongs_to(:tournament, Tournament)

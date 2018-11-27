@@ -6,9 +6,9 @@ defmodule OcwWebpage.DataAccess.Schemas.Round do
 
   schema "rounds" do
     belongs_to(:round_name, RoundName,
-      foreign_key: :round_name_id,
-      references: :name_id,
-      type: :integer
+      foreign_key: :round_name_fk,
+      references: :name,
+      type: :string
     )
 
     has_many(:results, Result)

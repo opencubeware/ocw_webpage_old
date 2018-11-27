@@ -70,6 +70,7 @@
               tr {
                 background: linear-gradient($color-blue-light, $color-blue-dark);
                 color: white;
+
                 th:first-child {
                   width: 30px;
                 }
@@ -157,6 +158,9 @@
           }
           li.collection-item {
             border-bottom:1px solid $color-grey;
+            &:hover {
+              background-color: $color-light-grey;
+            }
           }
         }
       }

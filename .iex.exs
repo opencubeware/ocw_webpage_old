@@ -1,8 +1,9 @@
-alias OcwWebpage.LivePage.{
+alias OcwWebpage.DataAccess.Schemas.{
   Tournament,
   Round,
   Event,
-  Result
+  Result,
+  Person
 }
 
 alias OcwWebpage.Constants.{
@@ -10,4 +11,4 @@ alias OcwWebpage.Constants.{
   EventName
 }
 
-alias OcwWebpage.{Person, Repo}
+alias OcwWebpage.Repo
