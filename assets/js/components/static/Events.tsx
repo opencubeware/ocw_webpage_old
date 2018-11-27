@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export class Events extends React.Component {
+export class EventsPage extends React.Component {
   public render() {
     return (
       <div className="events">

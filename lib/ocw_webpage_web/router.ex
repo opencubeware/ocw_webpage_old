@@ -13,15 +13,20 @@ defmodule OcwWebpageWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  scope "/", OcwWebpageWeb do
-    # Use the default browser stack
-    pipe_through(:browser)
+  scope "/api", OcwWebpageWeb do
+    pipe_through(:api)
 
-    get("/*path", PageController, :index)
+    scope "/v1" do
+      get(
+        "/tournaments/:tournament_name/events/:event_name/rounds/:round_name",
+        Api.V1.Rounds,
+        :show
+      )
+    end
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", OcwWebpageWeb do
-  #   pipe_through :api
-  # end
+  scope "/", OcwWebpageWeb do
+    pipe_through(:browser)
+    get("/*path", PageController, :index)
+  end
 end

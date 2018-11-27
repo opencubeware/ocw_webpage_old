@@ -4,7 +4,7 @@ import HomeBigCard from './Home/HomeBigCard'
 import { LeftGrid, RigthGrid, BottomGrid } from './News/Grids'
 import HomeSmallCard from './Home/HomeSmallCard'
 
-export class Home extends React.Component {
+export class HomePage extends React.Component {
   public render() {
     const fbPage = 'https://www.facebook.com/opencubeware/'
     const ghPage = 'https://www.github.com/opencubeware/'

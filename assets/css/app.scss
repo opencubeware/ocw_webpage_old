@@ -2,17 +2,10 @@
 @import "./home/home";
 @import "./news/news";
 @import "./navbar/navbar";
+@import "./tournament/tournament-show-page";
 
 body {
   font-family: $main-font;
-}
-
-.no-margin {
-  margin: 0px !important;
-}
-
-.no-padding {
-  padding: 0px !important;
 }
 
 .slash {

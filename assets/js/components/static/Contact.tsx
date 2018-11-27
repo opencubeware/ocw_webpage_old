@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export class Contact extends React.Component {
+export class ContactPage extends React.Component {
   public render() {
     return (
       <div className="contact">
