@@ -4,12 +4,7 @@ defmodule OcwWebpage.DataAccess.Schemas.Event do
   alias OcwWebpage.Constants.EventName
 
   schema "events" do
-    belongs_to(:event_name, EventName,
-      foreign_key: :event_name_fk,
-      references: :name,
-      type: :string
-    )
-
+    belongs_to(:event_name, EventName)
     belongs_to(:tournament, Tournament)
     has_many(:rounds, Round)
   end

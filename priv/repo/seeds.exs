@@ -37,12 +37,19 @@ Enum.each(event_names, fn [name, id] -> Repo.insert(%EventName{name: name, id: i
 
 event_name1 = Repo.get(EventName, 1)
 event_name2 = Repo.get(EventName, 2)
+event_name3 = Repo.get(EventName, 3)
+event_name4 = Repo.get(EventName, 4)
+event_name5 = Repo.get(EventName, 5)
+event_name6 = Repo.get(EventName, 6)
 
 round_name1 = Repo.get(RoundName, 1)
 round_name2 = Repo.get(RoundName, 2)
 round_name3 = Repo.get(RoundName, 3)
 round_name4 = Repo.get(RoundName, 4)
 round_name5 = Repo.get(RoundName, 5)
+round_name6 = Repo.get(RoundName, 6)
+
+round_names = [round_name1, round_name2, round_name3, round_name4, round_name5]
 
 person1 =
   Repo.insert!(%Person{
@@ -77,12 +84,6 @@ round1 = Repo.insert!(%Round{round_name: round_name1, event: event1})
 round2 = Repo.insert!(%Round{round_name: round_name2, event: event1})
 round3 = Repo.insert!(%Round{round_name: round_name1, event: event2})
 round4 = Repo.insert!(%Round{round_name: round_name2, event: event2})
-
-rounds = [round_name1, round_name2, round_name3, round_name4, round_name5]
-
-Enum.each(0..500, fn x ->
-  Repo.insert(%Round{round_name: Enum.random(rounds), event: event2})
-end)
 
 Repo.insert(%Result{
   round: round1,

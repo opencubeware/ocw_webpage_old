@@ -4,12 +4,7 @@ defmodule OcwWebpage.Constants.RoundName do
 
   schema "round_names" do
     field(:name, :string)
-
-    has_many(:rounds, Round,
-      foreign_key: :round_name_fk,
-      references: :name,
-      on_delete: :nilify_all
-    )
+    has_many(:rounds, Round)
   end
 
   def to_string("FirstRound"), do: "First Round"

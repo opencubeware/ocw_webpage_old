@@ -5,13 +5,8 @@ defmodule OcwWebpage.DataAccess.Schemas.Round do
   alias OcwWebpage.Constants.RoundName
 
   schema "rounds" do
-    belongs_to(:round_name, RoundName,
-      foreign_key: :round_name_fk,
-      references: :name,
-      type: :string
-    )
-
     has_many(:results, Result)
+    belongs_to(:round_name, RoundName)
     belongs_to(:event, Event)
   end
 end

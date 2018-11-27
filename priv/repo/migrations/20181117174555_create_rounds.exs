@@ -3,17 +3,10 @@ defmodule OcwWebpage.Repo.Migrations.CreateRounds do
 
   def change do
     create table(:rounds) do
-      add(
-        :round_name_fk,
-        references("round_names",
-          name: "round_name_fkey",
-          column: :name,
-          type: :string
-        ),
-        null: true
-      )
-
+      add(:round_name_id, references("round_names"), null: true)
       add(:event_id, references(:events), null: false)
     end
+
+    create(index(:rounds, :round_name_id))
   end
 end

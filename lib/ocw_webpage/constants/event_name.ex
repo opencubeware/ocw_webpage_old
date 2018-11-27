@@ -4,12 +4,7 @@ defmodule OcwWebpage.Constants.EventName do
 
   schema "event_names" do
     field(:name, :string)
-
-    has_many(:events, Event,
-      foreign_key: :event_name_fk,
-      references: :name,
-      on_delete: :nilify_all
-    )
+    has_many(:events, Event)
   end
 
   def to_string("3x3x3Blindfolded"), do: "3x3x3 Blindfolded"

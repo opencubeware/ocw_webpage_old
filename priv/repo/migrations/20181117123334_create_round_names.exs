@@ -5,7 +5,5 @@ defmodule OcwWebpage.Repo.Migrations.CreateRoundNames do
     create table(:round_names) do
       add(:name, :string, null: false)
     end
-
-    create(unique_index(:round_names, [:name]))
   end
 end
