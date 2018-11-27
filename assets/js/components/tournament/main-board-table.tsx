@@ -42,8 +42,8 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }: MainBoardTable) => 
           <thead>
             <tr>
               <th>No.</th>
-              <th>| Country</th>
               <th>| Competitor</th>
+              <th>| Country</th>
               <th>| 1</th>
               <th>| 2</th>
               <th>| 3</th>
@@ -62,11 +62,11 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }: MainBoardTable) => 
                       <td key={i}>
                         {i + 1}
                       </td>,
-                      <td key={result.competitor.country}>
-                        {result.competitor.country}
-                      </td>,
                       <td key={`${result.competitor.first_name} ${result.competitor.last_name}`}>
                         <b>{`${result.competitor.first_name} ${result.competitor.last_name}`}</b>
+                      </td>,
+                      <td key={result.competitor.country}>
+                        {result.competitor.country}
                       </td>,
                       mapAttemptsToTds(result.attempts),
                       cellWithRecord(result.best_solve, null, 'best', ''),
