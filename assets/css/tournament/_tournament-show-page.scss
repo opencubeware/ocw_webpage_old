@@ -150,6 +150,10 @@
 
         .collapsible-header {
           background: linear-gradient($color-blue-light, $color-blue-dark);
+
+          &:hover {
+            background: linear-gradient($color-blue-dark, $color-blue-darker);
+          }
         }
 
         .collapsible-body {
