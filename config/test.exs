@@ -17,3 +17,11 @@ config :ocw_webpage, OcwWebpage.Repo,
   database: "ocw_webpage_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :ocw_webpage, OcwWebpage.WcaRepo,
+  adapter: Ecto.Adapters.MySQL,
+  username: "root",
+  password: "",
+  database: "wca_db",
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox

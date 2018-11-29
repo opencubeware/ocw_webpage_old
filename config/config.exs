@@ -7,15 +7,14 @@ use Mix.Config
 
 # General application configuration
 config :ocw_webpage,
-  ecto_repos: [OcwWebpage.Repo]
+  ecto_repos: [OcwWebpage.Repo, OcwWebpage.WcaRepo]
 
 # Configures the endpoint
 config :ocw_webpage, OcwWebpageWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "LIVKytyfIw7V1QH2cS7Iyxihuvd3IbX0p5bRpDBznIfw0M3SyDlIRZb9286xMOTJ",
   render_errors: [view: OcwWebpageWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: OcwWebpage.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: OcwWebpage.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -24,4 +23,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
