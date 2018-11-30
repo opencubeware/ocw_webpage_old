@@ -3,7 +3,8 @@ alias OcwWebpage.DataAccess.Schemas.{
   Round,
   Event,
   Result,
-  Person
+  Person,
+  Wca
 }
 
 alias OcwWebpage.Constants.{
@@ -11,4 +12,4 @@ alias OcwWebpage.Constants.{
   EventName
 }
 
-alias OcwWebpage.Repo
+alias OcwWebpage.{Repo, WcaRepo}
