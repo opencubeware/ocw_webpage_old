@@ -2,11 +2,33 @@ defmodule OcwWebpage.Model.Result do
   alias OcwWebpage.Model
   defstruct [:attempts, :average, :competitor]
 
+  @type t :: %__MODULE__{}
+
+  @spec new(%{
+          attempts: [integer()],
+          average: integer(),
+          person: %{
+            country: String.t(),
+            first_name: String.t(),
+            last_name: String.t(),
+            wca_id: String.t()
+          }
+        }) :: t()
   def new(%{attempts: attempts, average: average, person: competitor}) do
     competitor = Model.Person.new(competitor)
     struct(__MODULE__, %{attempts: attempts, average: average, competitor: competitor})
   end
 
+  @spec to_map(%{
+          attempts: [integer()],
+          average: integer(),
+          competitor: Model.Person.t()
+        }) :: %{
+          attempts: [String.t()],
+          average: String.t(),
+          best_solve: String.t(),
+          competitor: map()
+        }
   def to_map(%{attempts: attempts, average: average, competitor: competitor}) do
     %{
       attempts: Enum.map(attempts, &convert_to_tournament_time_format/1),
