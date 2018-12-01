@@ -20,7 +20,11 @@ defmodule OcwWebpage.DataAccess.Round do
       join: t in Schemas.Tournament,
       on: t.id == e.tournament_id,
       where: rn.name == ^round_name and en.name == ^event_name and t.name == ^tournament_name,
-      preload: [event: [:event_name, :tournament], round_name: [], results: [:person]]
+      preload: [
+        event: [:event_name, :tournament],
+        round_name: [],
+        results: [person: [country: [:continent]]]
+      ]
     )
   end
 end
