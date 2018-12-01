@@ -2,11 +2,16 @@ defmodule OcwWebpage.Model.Round do
   alias OcwWebpage.Model
   defstruct [:event, :name, :results, :tournament_name]
 
-  @type t :: %__MODULE__{}
+  @type t :: %__MODULE__{
+          event: Model.Event.t(),
+          name: String.t(),
+          results: [Model.Result.t()],
+          tournament_name: String.t()
+        }
 
   @spec new(%{
           event: %{event_name: %{name: String.t()}, tournament: %{name: String.t()}},
-          results: Model.Result.t(),
+          results: map(),
           round_name: %{name: String.t()}
         }) :: t()
   def new(%{
@@ -22,7 +27,7 @@ defmodule OcwWebpage.Model.Round do
     })
   end
 
-  @spec to_map(__MODULE__.t()) :: %{
+  @spec to_map(t()) :: %{
           event: map(),
           name: String.t(),
           results: [map()],

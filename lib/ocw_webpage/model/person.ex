@@ -1,10 +1,17 @@
 defmodule OcwWebpage.Model.Person do
   defstruct [:first_name, :last_name, :wca_id, :country]
 
-  @type t :: %__MODULE__{}
+  alias OcwWebpage.Model
+
+  @type t :: %__MODULE__{
+          country: Model.Country.t(),
+          first_name: String.t(),
+          last_name: String.t(),
+          wca_id: String.t()
+        }
 
   @spec new(%{
-          country: String.t(),
+          country: map(),
           first_name: String.t(),
           last_name: String.t(),
           wca_id: String.t()
@@ -14,7 +21,7 @@ defmodule OcwWebpage.Model.Person do
       first_name: first_name,
       last_name: last_name,
       wca_id: wca_id,
-      country: country
+      country: Model.Country.new(country)
     })
   end
 
