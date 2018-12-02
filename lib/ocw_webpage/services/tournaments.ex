@@ -8,4 +8,11 @@ defmodule OcwWebpage.Services.Tournaments do
     |> FE.Result.map(&Model.Round.to_map/1)
     |> FE.Result.unwrap!()
   end
+
+  @spec fetch_event_with_rounds(String.t()) :: map()
+  def fetch_event_with_rounds(tournament_name) do
+    DataAccess.TournamentEventsNamesWithRoundNames.fetch(tournament_name)
+    |> FE.Result.map(&Model.EventsNamesWithRoundNames.to_map/1)
+    |> FE.Result.unwrap!()
+  end
 end
