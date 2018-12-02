@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
 import { Col, Row } from 'react-materialize'
 import MainBoardTop from '../components/tournament/main-board-top'
 import MainBoardTable from '../components/tournament/main-board-table'
@@ -7,7 +6,6 @@ import MainBoardRecords from '../components/tournament/main-board-records'
 import {
   MainBoardRecordStub,
   MainBoardSidebarCategoriesStub,
-  MainBoardTableStub,
 } from '../stubs/main-board'
 import MainSidebarCard from '../components/tournament/main-sidebar-card'
 import MainSidebarList from '../components/tournament/main-sidebar-list'
