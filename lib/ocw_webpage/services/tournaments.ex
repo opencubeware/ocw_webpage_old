@@ -5,8 +5,7 @@ defmodule OcwWebpage.Services.Tournaments do
   @spec fetch_round(String.t(), String.t(), String.t()) :: map()
   def fetch_round(tournament_name, event_name, round_name) do
     DataAccess.Round.fetch(tournament_name, event_name, round_name)
-    |> FE.Result.and_then(&Model.Round.new/1)
-    |> FE.Result.and_then(&Model.Round.to_map/1)
+    |> FE.Result.map(&Model.Round.to_map/1)
     |> FE.Result.unwrap!()
   end
 end

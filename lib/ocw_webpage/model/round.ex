@@ -29,25 +29,24 @@ defmodule OcwWebpage.Model.Round do
     )
   end
 
-  @spec to_map(t()) ::
-          FE.Result.t(%{
-            event: map(),
-            name: String.t(),
-            results: [map()],
-            tournament_name: String.t()
-          })
+  @spec to_map(t()) :: %{
+          event: map(),
+          name: String.t(),
+          results: [map()],
+          tournament_name: String.t()
+        }
   def to_map(%__MODULE__{
         event: event,
         name: name,
         results: results,
         tournament_name: tournament_name
       }) do
-    FE.Result.ok(%{
+    %{
       name: name,
       event: Model.Event.to_map(event),
       tournament_name: tournament_name,
       results: map_results(results)
-    })
+    }
   end
 
   defp map_results(results) do
