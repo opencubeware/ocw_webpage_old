@@ -4,9 +4,12 @@ defmodule OcwWebpage.DataAccess.Round do
   alias OcwWebpage.Repo
   alias OcwWebpage.Constants
 
+  @spec fetch(String.t(), String.t(), String.t()) :: Result.t(map())
   def fetch(tournament_name, event_name, round_name) do
     full_round_query(tournament_name, event_name, round_name)
     |> Repo.all()
+    |> FE.Result.ok()
+    |> FE.Result.map(fn [round] -> round end)
   end
 
   defp full_round_query(tournament_name, event_name, round_name) do
