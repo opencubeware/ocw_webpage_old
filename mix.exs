@@ -44,6 +44,7 @@ defmodule OcwWebpage.Mixfile do
       {:gettext, "~> 0.11"},
       {:ex_machina, "~> 2.2"},
       {:dialyxir, "~> 0.5.1", only: [:dev], runtime: false},
+      {:fe, git: "https://github.com/distributed-owls/fe", branch: "master"},
       {:cowboy, "~> 1.0"}
     ]
   end
