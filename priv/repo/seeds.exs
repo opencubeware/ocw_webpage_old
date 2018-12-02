@@ -310,7 +310,7 @@ round4 = Repo.insert!(%Round{round_name: round_name2, event: event2})
 
 Repo.insert(%Result{
   round: round1,
-  attempts: [5100, 6200, 7300, 5800, 7400],
+  attempts: [510, 620, 730, 580, 740],
   average: 636,
   competitor_id: person1.id
 })
