@@ -22,6 +22,12 @@ defmodule OcwWebpageWeb.Router do
         Api.V1.Rounds,
         :show
       )
+
+      get(
+        "/tournaments/:tournament_name/events_with_rounds",
+        Api.V1.Tournaments,
+        :show_events_with_tournaments
+      )
     end
   end
 
