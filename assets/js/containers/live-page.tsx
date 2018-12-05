@@ -9,7 +9,7 @@ import {
 } from '../stubs/main-board'
 import MainSidebarCard from '../components/tournament/main-sidebar-card'
 import MainSidebarList from '../components/tournament/main-sidebar-list'
-import { fetchRound } from '../actions'
+import { fetchRound, fetchEventsWithRounds } from '../actions'
 import { connect } from 'react-redux'
 
 export class LivePage extends React.Component<any, any> {
@@ -24,9 +24,10 @@ export class LivePage extends React.Component<any, any> {
   }
 
   public render() {
-    const { currentRound } = this.props
+    const { currentRound, eventsWithRounds } = this.props
     const results = currentRound && currentRound.results
     const tournamentName = currentRound && currentRound.tournament_name
+    const eventsNamesWithRoundNames = eventsWithRounds
     return (
       <Row className="tournament-show-page">
         <Row className="header">
@@ -46,7 +47,9 @@ export class LivePage extends React.Component<any, any> {
             {tournamentName && (
               <MainSidebarCard name={tournamentName} />
             )}
-            <MainSidebarList data={MainBoardSidebarCategoriesStub}/>
+            {eventsNamesWithRoundNames && (
+              <MainSidebarList tournamentName={tournamentName} data={eventsNamesWithRoundNames}/>
+            )}
           </Col>
         </Row>
       </Row>
@@ -56,11 +59,16 @@ export class LivePage extends React.Component<any, any> {
   private fetchSpecificRound() {
     const { tournamentName, eventName, roundName } = this.props.match.params
     this.props.fetchRound(tournamentName, eventName, roundName)
+    this.props.fetchEventsWithRounds(tournamentName)
   }
 }
 
 const mapStateToProps = (state) => {
-  return { ...state.round }
+  return {
+    ...state,
+    ...state.round,
+    ...state.eventsWithRounds
+  }
 }
 
-export default connect(mapStateToProps, { fetchRound })(LivePage)
+export default connect(mapStateToProps, { fetchRound, fetchEventsWithRounds })(LivePage)

@@ -4,16 +4,14 @@ import { Link } from 'react-router-dom'
 
 interface Event {
   name: string
-  rounds: string[]
+  round_names: string[]
 }
 
 interface MainSidebarList {
-  data: {
-    tournament_name: string
-    events: Event[]
-  }
+  tournamentName: string
+  data: { events: Event[] }
 }
-const MainSidebarList: React.SFC<MainSidebarList> = ({ data }) => {
+const MainSidebarList: React.SFC<MainSidebarList> = ({tournamentName, data }) => {
   return (
     <Col s={12} className="sidebar__list">
       <Collapsible popout={true}>
@@ -21,11 +19,11 @@ const MainSidebarList: React.SFC<MainSidebarList> = ({ data }) => {
           (event) =>
             <CollapsibleItem key={event.name} header={event.name} className="sidebar__list--header">
               <Collection>
-                {event.rounds && event.rounds.map(
+                {event.round_names && event.round_names.map(
                   (round, i) =>
                     <Link
                         key={i}
-                        to={`../../../../../tournaments/${data.tournament_name}/events/${event.name}/rounds/${round}`}>
+                        to={`../../../../../tournaments/${tournamentName}/events/${event.name}/rounds/${round}`}>
                       <CollectionItem key={round}>
                         {round}
                       </CollectionItem>

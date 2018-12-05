@@ -6,10 +6,7 @@ interface EventRound {
     tournament: {
       id: string
     }
-    event: {
-      id: string
-      name: string
-    }
+    event_name: string
     name: string
   }
 }
@@ -17,7 +14,7 @@ const MainBoardTop: React.SFC<EventRound> = ({ data }) => {
   return (
     <Row className="board__top">
       <Col s={2} className="puzzle">
-        {data.event.name}
+        {data.event_name}
       </Col>
       <Col s={2} className="round">
         {data.name}
