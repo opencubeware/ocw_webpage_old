@@ -1,4 +1,5 @@
 defmodule OcwWebpage.Model.EventsNamesWithRoundNames do
+  @derive Jason.Encoder
   defstruct([:events])
 
   @type t :: %__MODULE__{

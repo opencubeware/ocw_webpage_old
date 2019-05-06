@@ -1,4 +1,5 @@
 defmodule OcwWebpage.Model.Country do
+  @derive Jason.Encoder
   defstruct([:continent_name, :iso2, :name])
 
   @type t :: %__MODULE__{

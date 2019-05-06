@@ -21,15 +21,16 @@ defmodule OcwWebpageWeb do
     quote do
       use Phoenix.Controller, namespace: OcwWebpageWeb
       import Plug.Conn
-      import OcwWebpageWeb.Router.Helpers
+      alias OcwWebpageWeb.Router.Helpers, as: Routes
       import OcwWebpageWeb.Gettext
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/ocw_webpage_web/templates",
-                        namespace: OcwWebpageWeb
+      use Phoenix.View,
+        root: "lib/ocw_webpage_web/templates",
+        namespace: OcwWebpageWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -37,7 +38,7 @@ defmodule OcwWebpageWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import OcwWebpageWeb.Router.Helpers
+      alias OcwWebpageWeb.Router.Helpers, as: Routes
       import OcwWebpageWeb.ErrorHelpers
       import OcwWebpageWeb.Gettext
     end
