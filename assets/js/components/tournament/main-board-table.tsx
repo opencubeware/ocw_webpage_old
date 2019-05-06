@@ -65,8 +65,8 @@ const MainBoardTable: React.SFC<MainBoardTable> = ({ data }: MainBoardTable) => 
                       <td key={`${result.competitor.first_name} ${result.competitor.last_name}`}>
                         <b>{`${result.competitor.first_name} ${result.competitor.last_name}`}</b>
                       </td>,
-                      <td key={result.competitor.country}>
-                        {result.competitor.country}
+                      <td key={result.competitor.country.name}>
+                        <img src={require(`../../../static/images/flags/${result.competitor.country.iso2}.svg`)}/>
                       </td>,
                       mapAttemptsToTds(result.attempts),
                       cellWithRecord(result.best_solve, null, 'best', ''),

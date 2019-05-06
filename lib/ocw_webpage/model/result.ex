@@ -1,12 +1,35 @@
 defmodule OcwWebpage.Model.Result do
+  @derive Jason.Encoder
   alias OcwWebpage.Model
   defstruct [:attempts, :average, :competitor]
 
+  @type t :: %__MODULE__{
+          attempts: [integer()],
+          average: integer(),
+          competitor: Model.Person.t()
+        }
+
+  @spec new(%{
+          attempts: [integer()],
+          average: integer(),
+          person: %{
+            country: map(),
+            first_name: String.t(),
+            last_name: String.t(),
+            wca_id: String.t()
+          }
+        }) :: t()
   def new(%{attempts: attempts, average: average, person: competitor}) do
     competitor = Model.Person.new(competitor)
     struct(__MODULE__, %{attempts: attempts, average: average, competitor: competitor})
   end
 
+  @spec to_map(t()) :: %{
+          attempts: [String.t()],
+          average: String.t(),
+          best_solve: String.t(),
+          competitor: map()
+        }
   def to_map(%{attempts: attempts, average: average, competitor: competitor}) do
     %{
       attempts: Enum.map(attempts, &convert_to_tournament_time_format/1),
@@ -16,48 +39,48 @@ defmodule OcwWebpage.Model.Result do
     }
   end
 
-  defp convert_to_tournament_time_format(miliseconds) when miliseconds / 1000 < 10 do
-    "00:0#{float_to_binary(miliseconds)}"
+  defp convert_to_tournament_time_format(centiseconds) when centiseconds / 100 < 10 do
+    "00:0#{float_to_binary(centiseconds)}"
   end
 
-  defp convert_to_tournament_time_format(miliseconds)
-       when miliseconds / 1000 >= 10 and miliseconds / 1000 < 60 do
-    "00:#{float_to_binary(miliseconds)}"
+  defp convert_to_tournament_time_format(centiseconds)
+       when centiseconds / 100 >= 10 and centiseconds / 100 < 60 do
+    "00:#{float_to_binary(centiseconds)}"
   end
 
-  defp convert_to_tournament_time_format(miliseconds)
-       when miliseconds / 1000 >= 60 and miliseconds / 1000 < 600 do
-    {minutes, remaining_miliseconds} = to_minutes_and_seconds(miliseconds)
+  defp convert_to_tournament_time_format(centiseconds)
+       when centiseconds / 100 >= 60 and centiseconds / 100 < 600 do
+    {minutes, remaining_centiseconds} = to_minutes_and_seconds(centiseconds)
 
-    case remaining_miliseconds / 1000 < 10 do
+    case remaining_centiseconds / 100 < 10 do
       true ->
-        "0#{minutes}:0#{float_to_binary(remaining_miliseconds)}"
+        "0#{minutes}:0#{float_to_binary(remaining_centiseconds)}"
 
       false ->
-        "0#{minutes}:#{float_to_binary(remaining_miliseconds)}"
+        "0#{minutes}:#{float_to_binary(remaining_centiseconds)}"
     end
   end
 
-  defp convert_to_tournament_time_format(miliseconds)
-       when miliseconds / 1000 >= 600 and miliseconds / 1000 < 3600 do
-    {minutes, remaining_miliseconds} = to_minutes_and_seconds(miliseconds)
+  defp convert_to_tournament_time_format(centiseconds)
+       when centiseconds / 100 >= 600 and centiseconds / 100 < 3600 do
+    {minutes, remaining_centiseconds} = to_minutes_and_seconds(centiseconds)
 
-    case remaining_miliseconds / 1000 < 10 do
+    case remaining_centiseconds / 100 < 10 do
       true ->
-        "#{minutes}:0#{float_to_binary(remaining_miliseconds)}"
+        "#{minutes}:0#{float_to_binary(remaining_centiseconds)}"
 
       false ->
-        "#{minutes}:#{float_to_binary(remaining_miliseconds)}"
+        "#{minutes}:#{float_to_binary(remaining_centiseconds)}"
     end
   end
 
-  defp to_minutes_and_seconds(miliseconds) do
+  defp to_minutes_and_seconds(centiseconds) do
     minutes =
-      miliseconds
-      |> div(1000)
+      centiseconds
+      |> div(100)
       |> div(60)
 
-    {minutes, miliseconds - minutes * 60 * 1000}
+    {minutes, centiseconds - minutes * 60 * 100}
   end
 
   # defp calculate_average(attempts) do
@@ -72,5 +95,5 @@ defmodule OcwWebpage.Model.Result do
   #   end
   # end
 
-  defp float_to_binary(miliseconds), do: :erlang.float_to_binary(miliseconds / 1000, decimals: 2)
+  defp float_to_binary(centiseconds), do: :erlang.float_to_binary(centiseconds / 100, decimals: 2)
 end

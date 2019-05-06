@@ -98,6 +98,13 @@
                   border-radius: 0 !important;
                   padding: 5px 5px !important;
                   vertical-align: middle;
+
+                  img {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 45%;
+                  }
                 }
 
                 td.average-red {

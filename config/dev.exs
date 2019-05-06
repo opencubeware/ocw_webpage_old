@@ -57,9 +57,14 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :ocw_webpage, OcwWebpage.Repo,
-  adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
   database: "ocw_webpage_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :ocw_webpage, OcwWebpage.WcaRepo,
+  username: "wca",
+  password: "",
+  database: "wca_db",
+  hostname: "localhost"

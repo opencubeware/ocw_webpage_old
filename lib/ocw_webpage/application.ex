@@ -10,8 +10,9 @@ defmodule OcwWebpage.Application do
     children = [
       # Start the Ecto repository
       supervisor(OcwWebpage.Repo, []),
+      supervisor(OcwWebpage.WcaRepo, []),
       # Start the endpoint when the application starts
-      supervisor(OcwWebpageWeb.Endpoint, []),
+      supervisor(OcwWebpageWeb.Endpoint, [])
       # Start your own worker by calling: OcwWebpage.Worker.start_link(arg1, arg2, arg3)
       # worker(OcwWebpage.Worker, [arg1, arg2, arg3]),
     ]
